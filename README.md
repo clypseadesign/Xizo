@@ -1,16 +1,26 @@
-# React + Vite
+# Xizo Agentic OS Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Xizo is a React and Vite website for presenting industry-specific AI operating systems. It turns the product story into an interactive experience: visitors can choose an industry, inspect the AI agents inside that operating system, move the workflow nodes on a Miro-style canvas, and see the selected agent's mind map update live.
 
-Currently, two official plugins are available:
+## What's Included
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Home page with Xizo's brand story and operating-system positioning.
+- AI Agents page that routes into each industry OS.
+- Separate industry pages for Real Estate, Healthcare, Professional Services, Finance & Insurance, and Automotive & Dealerships.
+- Movable canvas nodes for each industry workflow.
+- Agent explanation panels with problems solved, Xizo solution, inputs, outputs, connected tools, and approval notes.
+- Responsive UI using Lucide icons and a restrained B2B SaaS design system.
 
-## React Compiler
+## Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the Oxlint configuration
+## Verification
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm run lint
+npm run build
+```
