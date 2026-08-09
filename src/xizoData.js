@@ -27,7 +27,7 @@ export const industries = [
         inputs: ["Website inquiry", "WhatsApp message", "Phone lead", "Campaign source"],
         outputs: ["Lead record", "First response", "Sales route", "Qualification task"],
         tools: ["CRM", "WhatsApp", "Email", "Voice"],
-        position: { x: 100, y: 150 }
+        position: { x: 70, y: 170 }
       },
       {
         id: "qualification",
@@ -38,7 +38,7 @@ export const industries = [
         inputs: ["Budget", "Location", "Timeline", "Financing", "Property type"],
         outputs: ["Lead score", "Buyer profile", "Sales alert", "CRM update"],
         tools: ["CRM", "Sales playbook", "Calendar"],
-        position: { x: 330, y: 110 }
+        position: { x: 250, y: 96 }
       },
       {
         id: "matching",
@@ -49,7 +49,7 @@ export const industries = [
         inputs: ["Buyer profile", "Property database", "Availability", "Amenities"],
         outputs: ["Shortlist", "Match reasons", "Alternatives", "Viewing options"],
         tools: ["Property database", "CRM", "Maps"],
-        position: { x: 570, y: 155 }
+        position: { x: 445, y: 170 }
       },
       {
         id: "scheduler",
@@ -60,7 +60,7 @@ export const industries = [
         inputs: ["Customer availability", "Agent calendar", "Property availability"],
         outputs: ["Booked viewing", "Calendar event", "Reminder sequence", "Agent brief"],
         tools: ["Calendar", "WhatsApp", "Maps"],
-        position: { x: 790, y: 260 }
+        position: { x: 620, y: 282 }
       },
       {
         id: "documents",
@@ -71,7 +71,7 @@ export const industries = [
         inputs: ["Uploaded documents", "Deal checklist", "Buyer data", "Seller data"],
         outputs: ["Document checklist", "Missing item alert", "Extracted fields"],
         tools: ["Document storage", "CRM", "Email"],
-        position: { x: 550, y: 395 }
+        position: { x: 445, y: 418 }
       },
       {
         id: "closing",
@@ -82,7 +82,7 @@ export const industries = [
         inputs: ["Offer status", "Agreement status", "Deadlines", "Stakeholders"],
         outputs: ["Closing checklist", "Task owners", "Escalations", "Status update"],
         tools: ["CRM", "Calendar", "Documents"],
-        position: { x: 300, y: 415 }
+        position: { x: 250, y: 418 }
       }
     ]
   },
@@ -114,7 +114,7 @@ export const industries = [
         inputs: ["Patient message", "Clinic hours", "Service directory", "Doctor availability"],
         outputs: ["Answered inquiry", "Appointment path", "Staff handoff"],
         tools: ["Patient portal", "Calendar", "SMS", "Voice"],
-        position: { x: 110, y: 145 }
+        position: { x: 70, y: 170 }
       },
       {
         id: "intake",
@@ -125,7 +125,7 @@ export const industries = [
         inputs: ["Patient profile", "Reason for visit", "Insurance details", "Required forms"],
         outputs: ["Completed intake", "Missing item alert", "EHR-ready summary"],
         tools: ["Forms", "EHR/EMR", "Document storage"],
-        position: { x: 340, y: 110 }
+        position: { x: 250, y: 96 }
       },
       {
         id: "triage",
@@ -136,7 +136,7 @@ export const industries = [
         inputs: ["Symptoms", "Protocol rules", "Patient context", "Urgency signals"],
         outputs: ["Routing recommendation", "Clinical handoff", "Audit log"],
         tools: ["Protocol library", "EHR/EMR", "Staff notifications"],
-        position: { x: 585, y: 150 }
+        position: { x: 445, y: 170 }
       },
       {
         id: "scheduler",
@@ -147,7 +147,7 @@ export const industries = [
         inputs: ["Patient request", "Provider calendar", "Department", "Location"],
         outputs: ["Booked appointment", "Reminder sequence", "Prep instructions"],
         tools: ["Calendar", "EHR/EMR", "SMS"],
-        position: { x: 800, y: 265 }
+        position: { x: 620, y: 282 }
       },
       {
         id: "insurance",
@@ -158,7 +158,7 @@ export const industries = [
         inputs: ["Insurance details", "Appointment type", "Payer rules"],
         outputs: ["Verification status", "Authorization tracker", "Staff note"],
         tools: ["Insurance portal", "Billing system", "EHR/EMR"],
-        position: { x: 565, y: 410 }
+        position: { x: 445, y: 418 }
       },
       {
         id: "follow-up",
@@ -169,7 +169,7 @@ export const industries = [
         inputs: ["Visit status", "Approved templates", "Care-plan reminders"],
         outputs: ["Follow-up message", "Reminder", "Feedback request", "Staff task"],
         tools: ["Patient portal", "SMS", "Calendar"],
-        position: { x: 300, y: 415 }
+        position: { x: 250, y: 418 }
       }
     ]
   },
@@ -201,7 +201,7 @@ export const industries = [
         inputs: ["Inquiry", "Company details", "Budget", "Timeline"],
         outputs: ["Fit score", "Meeting recommendation", "CRM update"],
         tools: ["CRM", "Website chat", "Calendar"],
-        position: { x: 120, y: 145 }
+        position: { x: 70, y: 170 }
       },
       {
         id: "meeting",
@@ -212,7 +212,7 @@ export const industries = [
         inputs: ["Calendar event", "CRM history", "Transcript", "Client docs"],
         outputs: ["Brief", "Summary", "Action items", "Follow-up draft"],
         tools: ["Calendar", "CRM", "Docs"],
-        position: { x: 360, y: 110 }
+        position: { x: 250, y: 96 }
       },
       {
         id: "proposal",
@@ -223,7 +223,7 @@ export const industries = [
         inputs: ["Meeting summary", "Template library", "Scope", "Pricing model"],
         outputs: ["Proposal draft", "Scope summary", "Pricing table"],
         tools: ["Docs", "CRM", "Knowledge base"],
-        position: { x: 605, y: 165 }
+        position: { x: 445, y: 170 }
       },
       {
         id: "onboarding",
@@ -234,7 +234,7 @@ export const industries = [
         inputs: ["Signed contract", "Client info", "Project scope", "Access needs"],
         outputs: ["Onboarding plan", "Document requests", "Project workspace"],
         tools: ["Project tool", "Calendar", "Docs"],
-        position: { x: 815, y: 265 }
+        position: { x: 620, y: 282 }
       },
       {
         id: "project",
@@ -245,7 +245,7 @@ export const industries = [
         inputs: ["Project plan", "Task board", "Milestones", "Client requests"],
         outputs: ["Status update", "Risk alert", "Task changes"],
         tools: ["Project management", "Slack", "Docs"],
-        position: { x: 570, y: 410 }
+        position: { x: 445, y: 418 }
       },
       {
         id: "billing",
@@ -256,7 +256,7 @@ export const industries = [
         inputs: ["Contract", "Milestones", "Time entries", "Deliverables"],
         outputs: ["Invoice draft", "Missing info alert", "Payment reminder"],
         tools: ["Accounting", "Project system", "CRM"],
-        position: { x: 310, y: 415 }
+        position: { x: 250, y: 418 }
       }
     ]
   },
@@ -288,7 +288,7 @@ export const industries = [
         inputs: ["Customer request", "Account context", "Policy data"],
         outputs: ["Support answer", "Service request", "Escalation"],
         tools: ["CRM", "Core system", "Policy admin"],
-        position: { x: 115, y: 145 }
+        position: { x: 70, y: 170 }
       },
       {
         id: "kyc",
@@ -299,7 +299,7 @@ export const industries = [
         inputs: ["Customer data", "ID documents", "KYC policy", "Risk indicators"],
         outputs: ["KYC status", "Missing item request", "Exception queue"],
         tools: ["KYC system", "Document storage", "Audit log"],
-        position: { x: 340, y: 110 }
+        position: { x: 250, y: 96 }
       },
       {
         id: "documents",
@@ -310,7 +310,7 @@ export const industries = [
         inputs: ["Uploaded file", "Application context", "Document rules"],
         outputs: ["Document type", "Extracted fields", "Quality flag"],
         tools: ["OCR", "Document storage", "Loan system"],
-        position: { x: 585, y: 160 }
+        position: { x: 445, y: 170 }
       },
       {
         id: "risk",
@@ -321,7 +321,7 @@ export const industries = [
         inputs: ["Application data", "Transactions", "Policy rules", "History"],
         outputs: ["Risk report", "Flag rationale", "Evidence list"],
         tools: ["Risk engine", "Analytics", "Audit logs"],
-        position: { x: 800, y: 270 }
+        position: { x: 620, y: 282 }
       },
       {
         id: "claims",
@@ -332,7 +332,7 @@ export const industries = [
         inputs: ["Claim details", "Policy data", "Photos", "Receipts"],
         outputs: ["Claim file", "Missing item alert", "Reviewer packet"],
         tools: ["Claims system", "Policy admin", "Messaging"],
-        position: { x: 560, y: 410 }
+        position: { x: 445, y: 418 }
       },
       {
         id: "review",
@@ -343,7 +343,7 @@ export const industries = [
         inputs: ["Recommendation", "Policy rule", "Risk level", "Evidence"],
         outputs: ["Approval request", "Decision log", "Next action"],
         tools: ["Policy engine", "Audit log", "Notifications"],
-        position: { x: 300, y: 415 }
+        position: { x: 250, y: 418 }
       }
     ]
   },
@@ -375,7 +375,7 @@ export const industries = [
         inputs: ["Marketplace inquiry", "Website lead", "WhatsApp message", "Campaign source"],
         outputs: ["First response", "Lead record", "Buyer context"],
         tools: ["CRM", "WhatsApp", "Email", "Voice"],
-        position: { x: 110, y: 145 }
+        position: { x: 70, y: 170 }
       },
       {
         id: "qualification",
@@ -386,7 +386,7 @@ export const industries = [
         inputs: ["Vehicle preference", "Budget", "Timeline", "Trade-in", "Finance need"],
         outputs: ["Buyer score", "Requirement profile", "Sales alert"],
         tools: ["CRM", "DMS", "Calendar"],
-        position: { x: 340, y: 110 }
+        position: { x: 250, y: 96 }
       },
       {
         id: "vehicle",
@@ -397,7 +397,7 @@ export const industries = [
         inputs: ["Buyer profile", "Inventory", "Vehicle specs", "Availability"],
         outputs: ["Shortlist", "Match reasons", "Alternatives"],
         tools: ["Inventory", "DMS", "CRM"],
-        position: { x: 590, y: 165 }
+        position: { x: 445, y: 170 }
       },
       {
         id: "test-drive",
@@ -408,7 +408,7 @@ export const industries = [
         inputs: ["Customer availability", "Vehicle availability", "Sales calendar"],
         outputs: ["Booked test drive", "Reminder", "Salesperson brief"],
         tools: ["Calendar", "CRM", "Inventory"],
-        position: { x: 805, y: 270 }
+        position: { x: 620, y: 282 }
       },
       {
         id: "finance",
@@ -419,7 +419,7 @@ export const industries = [
         inputs: ["Buyer data", "Vehicle price", "Down payment", "Documents"],
         outputs: ["Finance packet", "Missing docs", "Status update"],
         tools: ["Finance system", "Documents", "CRM"],
-        position: { x: 560, y: 410 }
+        position: { x: 445, y: 418 }
       },
       {
         id: "service",
@@ -430,7 +430,7 @@ export const industries = [
         inputs: ["Vehicle history", "Service interval", "Customer request"],
         outputs: ["Service booking", "Maintenance reminder", "Retention task"],
         tools: ["Service scheduler", "DMS", "SMS"],
-        position: { x: 300, y: 415 }
+        position: { x: 250, y: 418 }
       }
     ]
   }
@@ -453,4 +453,3 @@ export const storyChapters = [
       "Xizo is not a box of chatbots. It is a visible AI workforce with clear responsibilities, workflow maps, audit trails, and human control points."
   }
 ];
-
