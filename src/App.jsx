@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import {
   ArrowRight, BarChart3, Bot, Brain, BrainCircuit,
   Building2, CheckCircle, ChevronDown, ChevronLeft,
@@ -11,8 +11,64 @@ import {
   Activity, Database, Link, X, Menu, Home,
   ArrowUpRight, CheckCheck, Briefcase
 } from "lucide-react";
+import { animate, spring } from "motion";
 import xizoLogo from "./assets/xizo-logo-white.png";
 import "./index.css";
+
+// ── Apple spring presets ──────────────────────────────────────────────────────
+// Damping ratio 1.0 = critically damped (no overshoot) — default for UI
+// Damping ratio 0.8 = slight bounce — only for momentum-driven interactions
+const SPR_DEFAULT  = { type: "spring", bounce: 0,   duration: 0.38 };
+const SPR_SNAPPY   = { type: "spring", bounce: 0,   duration: 0.28 };
+const SPR_BOUNCE   = { type: "spring", bounce: 0.22, duration: 0.4  }; // flick/momentum only
+const SPR_SLOW     = { type: "spring", bounce: 0,   duration: 0.55 };
+
+// ── Reduced motion detection ──────────────────────────────────────────────────
+const reducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ── Spring entrance hook — page-level ────────────────────────────────────────
+// Apple: pages enter from the same axis they exit; no overshoot on page enter
+function useSpringEntrance(ref) {
+  useEffect(() => {
+    if (!ref.current || reducedMotion()) return;
+    animate(
+      ref.current,
+      { opacity: [0, 1], y: [14, 0] },
+      SPR_DEFAULT
+    );
+  }, [ref]);
+}
+
+// ── Spring card hover — wire to JS for interruptibility ───────────────────────
+function useSpringCard(ref) {
+  useEffect(() => {
+    const el = ref.current; if (!el || reducedMotion()) return;
+    const enter = () => animate(el, { y: -4, scale: 1.000 }, SPR_BOUNCE);
+    const leave = () => animate(el, { y: 0,  scale: 1.000 }, SPR_DEFAULT);
+    const press = () => animate(el, { y: -1, scale: 0.990 }, SPR_SNAPPY);
+    el.addEventListener("mouseenter", enter);
+    el.addEventListener("mouseleave", leave);
+    el.addEventListener("pointerdown", press);
+    return () => { el.removeEventListener("mouseenter", enter); el.removeEventListener("mouseleave", leave); el.removeEventListener("pointerdown", press); };
+  }, [ref]);
+}
+
+// ── Intersection observer — animate on scroll ─────────────────────────────────
+function useReveal(ref, delay = 0) {
+  useEffect(() => {
+    const el = ref.current; if (!el || reducedMotion()) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        animate(el, { opacity: [0, 1], y: [16, 0] }, { ...SPR_DEFAULT, delay });
+        obs.disconnect();
+      }
+    }, { threshold: 0.15 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [ref, delay]);
+}
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 let industries, businessProblems, useCases, agentTypes, resources,
@@ -426,6 +482,21 @@ function AuditDashboard() {
 const CAPS=["Business AI Audit","Revenue Leakage Detection","Agent Orchestration","Workflow Intelligence","CRM Integration","WhatsApp AI","Voice Agents","EHR / EMR Sync","Approval Workflows","Real-Time Analytics","Lead Management","Human-in-the-Loop","Document AI","Finance Automation","Knowledge Engine","Anomaly Detection"];
 
 function HomePage({navigate}) {
+  const heroRef = useRef(null);
+  const visualRef = useRef(null);
+  const metricsRef = useRef(null);
+
+  // Apple: hero entrance — critical-damped spring, enter from Y axis
+  useEffect(() => {
+    if (reducedMotion()) return;
+    if (heroRef.current)
+      animate(heroRef.current, { opacity:[0,1], y:[20,0] }, { ...SPR_DEFAULT, delay: 0.05 });
+    if (visualRef.current)
+      animate(visualRef.current, { opacity:[0,1], y:[28,0], scale:[0.97,1] }, { ...SPR_SLOW, delay: 0.2 });
+  }, []);
+
+  useReveal(metricsRef, 0);
+
   const PROBLEMS=[
     {q:"Where are you losing revenue?",a:"Leads falling through gaps, follow-up leakage, slow response times"},
     {q:"Where are customers falling through the cracks?",a:"Support delays, onboarding drop-off, poor communication handoffs"},
@@ -447,7 +518,8 @@ function HomePage({navigate}) {
       {/* HERO */}
       <section className="hero">
         <div className="hero-inner">
-          <div className="hero-copy">
+          {/* Apple: assign ref, animate from current value, no overshoot */}
+          <div className="hero-copy" ref={heroRef} style={{opacity:0}}>
             <div className="pill" style={{marginBottom:24}}>
               <span className="pill-dot"/>
               The AI Operating System Company
@@ -473,7 +545,8 @@ function HomePage({navigate}) {
               Business-first AI · Human-controlled · Measurable outcomes
             </p>
           </div>
-          <div className="hero-visual-wrap">
+          {/* Apple: visual enters later, slight scale spring — feels like it materializes */}
+          <div className="hero-visual-wrap" ref={visualRef} style={{opacity:0}}>
             <OSVisualization/>
           </div>
         </div>
@@ -617,10 +690,11 @@ function HomePage({navigate}) {
             <p className="label">Business Impact</p>
             <h2 className="section-title">AI Measured in Business Outcomes.</h2>
           </div>
-          <div className="feat-grid-4">
+          {/* Apple: staggered reveal \u2014 each card springs in with slight delay offset */}
+          <div className="feat-grid-4" ref={metricsRef} style={{opacity:0}}>
             {[
               {n:"< 2 min",l:"Lead response time (from 2h 47m)",c:"c-blue"},
-              {n:"3×",l:"More follow-up touchpoints per lead",c:"c-violet"},
+              {n:"3\u00d7",l:"More follow-up touchpoints per lead",c:"c-violet"},
               {n:"94%",l:"Onboarding completion rate",c:"c-green"},
               {n:"14h",l:"Returned per employee per week",c:""},
             ].map(({n,l,c},i)=>(
@@ -1494,28 +1568,40 @@ function ContactPage() {
   );
 }
 
+// ── Page wrapper — spring entrance, Apple: enter from same axis as exit ───────
+function Page({ children }) {
+  const ref = useRef(null);
+  useSpringEntrance(ref);
+  return <div ref={ref} style={{ opacity: 0 }}>{children}</div>;
+}
+
 // ── APP ROOT ──────────────────────────────────────────────────────────────────
 export default function App() {
   const {route,navigate}=useRouter();
   const render=()=>{
-    switch(route.page) {
-      case "home":          return <HomePage          navigate={navigate}/>;
-      case "audit":         return <AuditPage         navigate={navigate}/>;
-      case "ai-os":         return <AIOSPage          navigate={navigate}/>;
-      case "agents":        return <AgentsPage        navigate={navigate}/>;
-      case "orchestration": return <OrchestrationPage navigate={navigate}/>;
-      case "problems":      return <ProblemsPage      navigate={navigate}/>;
-      case "industries":    return route.sub?<IndustryDetailPage id={route.sub} navigate={navigate}/>:<IndustriesPage navigate={navigate}/>;
-      case "how-it-works":  return <HowPage           navigate={navigate}/>;
-      case "use-cases":     return <UseCasesPage      navigate={navigate}/>;
-      case "roi":           return <ROIPage           navigate={navigate}/>;
-      case "integrations":  return <IntegrationsPage  navigate={navigate}/>;
-      case "human-ai":      return <HumanAIPage       navigate={navigate}/>;
-      case "about":         return <AboutPage         navigate={navigate}/>;
-      case "resources":     return <ResourcesPage     navigate={navigate}/>;
-      case "contact":       return <ContactPage/>;
-      default:              return <HomePage          navigate={navigate}/>;
-    }
+    // Key on route so Page re-mounts and re-animates on navigation
+    const key = route.page + (route.sub ? "/" + route.sub : "");
+    const content = (() => {
+      switch(route.page) {
+        case "home":          return <HomePage          navigate={navigate}/>;
+        case "audit":         return <AuditPage         navigate={navigate}/>;
+        case "ai-os":         return <AIOSPage          navigate={navigate}/>;
+        case "agents":        return <AgentsPage        navigate={navigate}/>;
+        case "orchestration": return <OrchestrationPage navigate={navigate}/>;
+        case "problems":      return <ProblemsPage      navigate={navigate}/>;
+        case "industries":    return route.sub?<IndustryDetailPage id={route.sub} navigate={navigate}/>:<IndustriesPage navigate={navigate}/>;
+        case "how-it-works":  return <HowPage           navigate={navigate}/>;
+        case "use-cases":     return <UseCasesPage      navigate={navigate}/>;
+        case "roi":           return <ROIPage           navigate={navigate}/>;
+        case "integrations":  return <IntegrationsPage  navigate={navigate}/>;
+        case "human-ai":      return <HumanAIPage       navigate={navigate}/>;
+        case "about":         return <AboutPage         navigate={navigate}/>;
+        case "resources":     return <ResourcesPage     navigate={navigate}/>;
+        case "contact":       return <ContactPage/>;
+        default:              return <HomePage          navigate={navigate}/>;
+      }
+    })();
+    return <Page key={key}>{content}</Page>;
   };
   return (<><Nav route={route} navigate={navigate}/>{render()}<Footer navigate={navigate}/></>);
 }
