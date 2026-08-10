@@ -70,6 +70,166 @@ function useReveal(ref, delay = 0) {
   }, [ref, delay]);
 }
 
+// ── Scroll Progress Bar ────────────────────────────────────────────────────────
+function ScrollProgress() {
+  const [pct, setPct] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const el = document.documentElement;
+      const scrolled = el.scrollTop;
+      const total = el.scrollHeight - el.clientHeight;
+      setPct(total > 0 ? (scrolled / total) * 100 : 0);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return (
+    <div style={{
+      position: 'fixed', top: 0, left: 0, right: 0, height: 2,
+      background: 'var(--border-3)', zIndex: 200, pointerEvents: 'none'
+    }}>
+      <div style={{
+        height: '100%', width: `${pct}%`,
+        background: 'linear-gradient(90deg, var(--blue), var(--violet))',
+        transition: 'width 80ms linear',
+        boxShadow: '0 0 8px rgba(95,97,237,0.5)'
+      }}/>
+    </div>
+  );
+}
+
+// ── Floating Actions — WhatsApp + Back to Top ─────────────────────────────────
+function FloatingActions() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const base = {
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    width: 48, height: 48, borderRadius: '50%', cursor: 'pointer',
+    border: 'none', transition: 'transform 200ms cubic-bezier(0.34,1.3,0.64,1), box-shadow 200ms, opacity 200ms',
+    opacity: show ? 1 : 0, pointerEvents: show ? 'auto' : 'none',
+    transform: show ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.85)',
+  };
+  return (
+    <div style={{
+      position: 'fixed', bottom: 24, right: 24, zIndex: 150,
+      display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'center'
+    }}>
+      {/* WhatsApp */}
+      <a
+        href="https://wa.me/916382347050?text=Hi%20Xizo!%20I'd%20like%20to%20request%20an%20AI%20Business%20Audit."
+        target="_blank" rel="noopener noreferrer"
+        title="Chat on WhatsApp"
+        style={{
+          ...base,
+          background: '#25d366',
+          boxShadow: '0 4px 20px rgba(37,211,102,0.40), 0 2px 8px rgba(0,0,0,0.12)',
+          color: '#fff', fontSize: 22, textDecoration: 'none',
+        }}
+        onMouseEnter={e => e.currentTarget.style.transform='translateY(-2px) scale(1.08)'}
+        onMouseLeave={e => e.currentTarget.style.transform='translateY(0) scale(1)'}
+      >
+        {/* WhatsApp SVG icon */}
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+      {/* Back to top */}
+      <button
+        onClick={scrollTop}
+        title="Back to top"
+        style={{
+          ...base,
+          background: 'var(--bg)',
+          border: '1.5px solid var(--border-2)',
+          color: 'var(--muted)',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.10)',
+          fontSize: 18,
+        }}
+        onMouseEnter={e => { e.currentTarget.style.transform='translateY(-2px) scale(1.08)'; e.currentTarget.style.color='var(--blue)'; }}
+        onMouseLeave={e => { e.currentTarget.style.transform='translateY(0) scale(1)'; e.currentTarget.style.color='var(--muted)'; }}
+      >
+        ↑
+      </button>
+    </div>
+  );
+}
+
+// ── Comparison Section — AI Agents vs Xizo AI OS ──────────────────────────────
+function ComparisonSection() {
+  const rows = [
+    {topic:'Starting point',     agents:'AI capability (what can AI do?)',           xizo:'Business problem (where are you losing value?)'},
+    {topic:'Architecture',       agents:'Individual tools deployed independently',     xizo:'Coordinated OS — agents connected through orchestration layer'},
+    {topic:'Context',            agents:'Each agent starts fresh with no history',     xizo:'Full context passed between every agent'},
+    {topic:'Human control',      agents:'Hard to interrupt or override mid-execution', xizo:'Explicit approval gates at every consequential decision'},
+    {topic:'Integration',        agents:'Separate integrations per tool',              xizo:'Single integration layer across all agents and systems'},
+    {topic:'Measurement',        agents:'Technology metrics (queries handled)',        xizo:'Business metrics (revenue, hours, customers)'},
+    {topic:'Improvement',        agents:'Upgrade individual agent versions',           xizo:'Orchestration learns from every workflow execution'},
+    {topic:'Exception handling',  agents:'Errors and edge cases cause silent failures', xizo:'Automatic escalation with full context to the right human'},
+  ];
+  return (
+    <section className="section">
+      <div className="wrap">
+        <div className="sh center">
+          <p className="label">Why Not Just Buy AI Agents?</p>
+          <h2 className="section-title">AI Agents vs <em>AI Operating System</em></h2>
+          <p className="body-lg">The difference between a collection of tools and an intelligent operational infrastructure.</p>
+        </div>
+        <div style={{
+          background: 'var(--bg)',
+          border: '1px solid var(--border)',
+          borderRadius: 'var(--r-2xl)',
+          overflow: 'hidden',
+          boxShadow: 'var(--sh)'
+        }}>
+          {/* Header row */}
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr 1.1fr 1.1fr',
+            background: 'var(--bg-soft)',
+            borderBottom: '1px solid var(--border)'
+          }}>
+            <div style={{padding:'14px 22px', fontSize:11, fontWeight:700, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--muted-2)'}}>
+              Dimension
+            </div>
+            <div style={{padding:'14px 22px', borderLeft:'1px solid var(--border)', display:'flex', alignItems:'center', gap:8}}>
+              <span style={{fontSize:11, fontWeight:700, letterSpacing:'0.06em', textTransform:'uppercase', color:'var(--muted-2)'}}>Standard AI Agents</span>
+            </div>
+            <div style={{padding:'14px 22px', borderLeft:'1px solid var(--border)', background:'var(--blue-soft)', display:'flex', alignItems:'center', gap:8}}>
+              <span style={{fontSize:11, fontWeight:800, letterSpacing:'0.06em', textTransform:'uppercase', color:'var(--blue-3)'}}>Xizo AI OS</span>
+              <span className="pill-dot" style={{width:6,height:6}}/>
+            </div>
+          </div>
+          {/* Data rows */}
+          {rows.map((r, i) => (
+            <div key={i} style={{
+              display: 'grid', gridTemplateColumns: '1fr 1.1fr 1.1fr',
+              borderBottom: i < rows.length-1 ? '1px solid var(--border)' : 'none',
+              transition: 'background 160ms'
+            }}
+            onMouseEnter={e => e.currentTarget.style.background='var(--bg-soft)'}
+            onMouseLeave={e => e.currentTarget.style.background='transparent'}
+            >
+              <div style={{padding:'14px 22px', fontSize:12, fontWeight:700, color:'var(--ink-3)'}}>{r.topic}</div>
+              <div style={{padding:'14px 22px', borderLeft:'1px solid var(--border)', fontSize:12.5, color:'var(--muted)', display:'flex', alignItems:'flex-start', gap:8}}>
+                <span style={{color:'#dc2626', fontSize:14, lineHeight:1, flexShrink:0, marginTop:1}}>✕</span>
+                {r.agents}
+              </div>
+              <div style={{padding:'14px 22px', borderLeft:'1px solid var(--border)', fontSize:12.5, color:'var(--ink-3)', display:'flex', alignItems:'flex-start', gap:8, background:'rgba(95,97,237,0.02)'}}>
+                <span style={{color:'var(--green)', fontSize:14, lineHeight:1, flexShrink:0, marginTop:1}}>✓</span>
+                {r.xizo}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── Data ─────────────────────────────────────────────────────────────────────
 let industries, businessProblems, useCases, agentTypes, resources,
     stagesPipeline, leakCategories;
@@ -653,6 +813,9 @@ function HomePage({navigate}) {
           </div>
         </div>
       </section>
+
+      {/* COMPARISON: AI Agents vs AI OS */}
+      <ComparisonSection/>
 
       {/* INDUSTRIES TEASER */}
       <section className="section section-bg">
@@ -1579,7 +1742,6 @@ function Page({ children }) {
 export default function App() {
   const {route,navigate}=useRouter();
   const render=()=>{
-    // Key on route so Page re-mounts and re-animates on navigation
     const key = route.page + (route.sub ? "/" + route.sub : "");
     const content = (() => {
       switch(route.page) {
@@ -1603,5 +1765,13 @@ export default function App() {
     })();
     return <Page key={key}>{content}</Page>;
   };
-  return (<><Nav route={route} navigate={navigate}/>{render()}<Footer navigate={navigate}/></>);
+  return (
+    <>
+      <ScrollProgress/>
+      <Nav route={route} navigate={navigate}/>
+      {render()}
+      <Footer navigate={navigate}/>
+      <FloatingActions/>
+    </>
+  );
 }
