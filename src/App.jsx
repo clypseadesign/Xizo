@@ -42,11 +42,15 @@ const reducedMotion = () =>
 function useSpringEntrance(ref) {
   useEffect(() => {
     if (!ref.current || reducedMotion()) return;
-    animate(
-      ref.current,
-      { opacity: [0, 1], y: [14, 0] },
-      SPR_DEFAULT
-    );
+    try {
+      animate(
+        ref.current,
+        { opacity: [0, 1], y: [14, 0] },
+        SPR_DEFAULT
+      );
+    } catch (e) {
+      if (ref.current) ref.current.style.opacity = "1";
+    }
   }, [ref]);
 }
 
@@ -1731,7 +1735,7 @@ function ContactPage() {
 function Page({ children }) {
   const ref = useRef(null);
   useSpringEntrance(ref);
-  return <div ref={ref} style={{ opacity: 0 }}>{children}</div>;
+  return <div ref={ref}>{children}</div>;
 }
 
 // ── APP ROOT ──────────────────────────────────────────────────────────────────
