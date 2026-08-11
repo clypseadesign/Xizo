@@ -13,6 +13,15 @@ import {
 } from "lucide-react";
 import { animate, spring } from "motion";
 import xizoLogo from "./assets/xizo-logo-white.png";
+import {
+  industries,
+  businessProblems,
+  useCases,
+  agentTypes,
+  resources,
+  stagesPipeline,
+  leakCategories
+} from "./xizoData.js";
 import "./index.css";
 
 // ── Apple spring presets ──────────────────────────────────────────────────────
@@ -229,20 +238,6 @@ function ComparisonSection() {
     </section>
   );
 }
-
-// ── Data ─────────────────────────────────────────────────────────────────────
-let industries, businessProblems, useCases, agentTypes, resources,
-    stagesPipeline, leakCategories;
-try {
-  const d = await import("./xizoData.js");
-  industries       = d.industries;
-  businessProblems = d.businessProblems;
-  useCases         = d.useCases;
-  agentTypes       = d.agentTypes;
-  resources        = d.resources;
-  stagesPipeline   = d.stagesPipeline;
-  leakCategories   = d.leakCategories;
-} catch { industries=[]; businessProblems=[]; useCases=[]; agentTypes=[]; resources=[]; stagesPipeline=[]; leakCategories=[]; }
 
 // ── Router ────────────────────────────────────────────────────────────────────
 function parseHash() { const h=window.location.hash.replace("#","") || "home"; const [page,...r]=h.split("/"); return {page,sub:r.join("/")}; }
