@@ -71,10 +71,18 @@ function useSpringCard(ref) {
 // ── Intersection observer — animate on scroll ─────────────────────────────────
 function useReveal(ref, delay = 0) {
   useEffect(() => {
-    const el = ref.current; if (!el || reducedMotion()) return;
+    const el = ref.current; if (!el) return;
+    if (reducedMotion()) {
+      el.style.opacity = "1";
+      return;
+    }
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        animate(el, { opacity: [0, 1], y: [16, 0] }, { ...SPR_DEFAULT, delay });
+        try {
+          animate(el, { opacity: [0, 1], y: [16, 0] }, { ...SPR_DEFAULT, delay });
+        } catch {
+          el.style.opacity = "1";
+        }
         obs.disconnect();
       }
     }, { threshold: 0.15 });
@@ -649,10 +657,15 @@ function HomePage({navigate}) {
   // Apple: hero entrance — critical-damped spring, enter from Y axis
   useEffect(() => {
     if (reducedMotion()) return;
-    if (heroRef.current)
-      animate(heroRef.current, { opacity:[0,1], y:[20,0] }, { ...SPR_DEFAULT, delay: 0.05 });
-    if (visualRef.current)
-      animate(visualRef.current, { opacity:[0,1], y:[28,0], scale:[0.97,1] }, { ...SPR_SLOW, delay: 0.2 });
+    try {
+      if (heroRef.current)
+        animate(heroRef.current, { opacity:[0,1], y:[20,0] }, { ...SPR_DEFAULT, delay: 0.05 });
+      if (visualRef.current)
+        animate(visualRef.current, { opacity:[0,1], y:[28,0], scale:[0.97,1] }, { ...SPR_SLOW, delay: 0.2 });
+    } catch {
+      if (heroRef.current) heroRef.current.style.opacity = "1";
+      if (visualRef.current) visualRef.current.style.opacity = "1";
+    }
   }, []);
 
   useReveal(metricsRef, 0);
@@ -679,7 +692,7 @@ function HomePage({navigate}) {
       <section className="hero">
         <div className="hero-inner">
           {/* Apple: assign ref, animate from current value, no overshoot */}
-          <div className="hero-copy" ref={heroRef} style={{opacity:0}}>
+          <div className="hero-copy" ref={heroRef}>
             <div className="pill" style={{marginBottom:24}}>
               <span className="pill-dot"/>
               The AI Operating System Company
@@ -706,7 +719,7 @@ function HomePage({navigate}) {
             </p>
           </div>
           {/* Apple: visual enters later, slight scale spring — feels like it materializes */}
-          <div className="hero-visual-wrap" ref={visualRef} style={{opacity:0}}>
+          <div className="hero-visual-wrap" ref={visualRef}>
             <OSVisualization/>
           </div>
         </div>
@@ -853,8 +866,8 @@ function HomePage({navigate}) {
             <p className="label">Business Impact</p>
             <h2 className="section-title">AI Measured in Business Outcomes.</h2>
           </div>
-          {/* Apple: staggered reveal \u2014 each card springs in with slight delay offset */}
-          <div className="feat-grid-4" ref={metricsRef} style={{opacity:0}}>
+          {/* Apple: staggered reveal — each card springs in with slight delay offset */}
+          <div className="feat-grid-4" ref={metricsRef}>
             {[
               {n:"< 2 min",l:"Lead response time (from 2h 47m)",c:"c-blue"},
               {n:"3\u00d7",l:"More follow-up touchpoints per lead",c:"c-violet"},
