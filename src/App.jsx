@@ -277,8 +277,7 @@ function Nav({route,navigate}) {
     <>
       <header className="site-nav">
         <div className="nav-inner">
-          <img src={xizoLogo} alt="Xizo" className="nav-logo" onClick={()=>navigate("home")}
-            style={{filter:"brightness(0)"}} />
+          <img src={xizoLogo} alt="Xizo" className="nav-logo" onClick={()=>navigate("home")} />
           <nav className="nav-links">
             {NAV.map(n=><button key={n.p} className={`nav-link${route.page===n.p?" active":""}`} onClick={()=>navigate(n.p)}>{n.l}</button>)}
           </nav>
