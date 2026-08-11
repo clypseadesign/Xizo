@@ -1,14 +1,14 @@
-/* ── Google Fonts ─────────────────────────────────────────────────────────── */
+﻿/* â”€â”€ Google Fonts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=Instrument+Serif:ital@0;1&display=swap');
 
-/* ── Design Tokens ────────────────────────────────────────────────────────── */
+/* â”€â”€ Design Tokens â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   /* Surfaces */
   --bg:           #ffffff;
   --bg-soft:      #f7f7f7;
   --bg-subtle:    #f0f0f5;
 
-  /* Material — translucent layers (hierarchy: nav > card > sheet) */
+  /* Material â€” translucent layers (hierarchy: nav > card > sheet) */
   --mat-nav:       rgba(255,255,255,0.82);
   --mat-nav-blur:  blur(24px) saturate(180%);
   --mat-card:      rgba(255,255,255,0.72);
@@ -44,7 +44,7 @@
   --amber:      #f59e0b;
   --red:        #ef4444;
 
-  /* Typography — Apple principle: optical sizing + size-specific tracking */
+  /* Typography â€” Apple principle: optical sizing + size-specific tracking */
   --font:       'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
 
@@ -61,7 +61,7 @@
   --r-2xl:  32px;
   --r-pill: 999px;
 
-  /* Shadows — contextual (bigger surface = thicker material) */
+  /* Shadows â€” contextual (bigger surface = thicker material) */
   --sh-xs:  0 1px 2px rgba(0,0,0,0.05);
   --sh-sm:  0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
   --sh:     0 4px 20px rgba(0,0,0,0.08), 0 1px 6px rgba(0,0,0,0.04);
@@ -69,7 +69,7 @@
   --sh-xl:  0 24px 80px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.06);
   --sh-blue: 0 6px 28px rgba(95,97,237,0.24), 0 2px 8px rgba(95,97,237,0.14);
 
-  /* Spring timings — CSS fallback for non-JS-animated elements */
+  /* Spring timings â€” CSS fallback for non-JS-animated elements */
   --ease-spring: cubic-bezier(0.34,1.3,0.64,1);  /* slight spring overshoot */
   --ease-out:    cubic-bezier(0.16,1,0.3,1);      /* critically damped feel */
   --ease-in:     cubic-bezier(0.4,0,1,1);
@@ -79,7 +79,7 @@
   --t-slow:    420ms;
 }
 
-/* ── Reset ────────────────────────────────────────────────────────────────── */
+/* â”€â”€ Reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
@@ -100,7 +100,7 @@ button { font-family: var(--font); font-optical-sizing: auto; cursor: pointer; b
 input, textarea, select { font-family: var(--font); font-optical-sizing: auto; }
 ul { list-style: none; }
 
-/* ── Utility ─────────────────────────────────────────────────────────────── */
+/* â”€â”€ Utility â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .wrap    { width: min(var(--maxw), calc(100% - 48px)); margin: 0 auto; }
 .wrap-sm { width: min(800px, calc(100% - 48px)); margin: 0 auto; }
 .wrap-lg { width: min(1400px, calc(100% - 48px)); margin: 0 auto; }
@@ -109,9 +109,9 @@ ul { list-style: none; }
 .section-bg { background: var(--bg-soft); }
 .divider    { border: none; border-top: 1px solid var(--border); }
 
-/* ── Typography — Apple: size-specific tracking, optical leading ──────────── */
+/* â”€â”€ Typography â€” Apple: size-specific tracking, optical leading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
-/* Display: largest text — negative tracking, very tight leading */
+/* Display: largest text â€” negative tracking, very tight leading */
 .hero-title {
   font-size: clamp(44px, 6.5vw, 82px);
   font-weight: 900;
@@ -127,7 +127,7 @@ ul { list-style: none; }
   color: var(--blue);
 }
 
-/* Section heading — still tight tracking, slightly looser leading */
+/* Section heading â€” still tight tracking, slightly looser leading */
 .section-title {
   font-size: clamp(28px, 4.5vw, 52px);
   font-weight: 800;
@@ -143,7 +143,7 @@ ul { list-style: none; }
   color: var(--blue);
 }
 
-/* Card title — moderate size, slightly negative tracking */
+/* Card title â€” moderate size, slightly negative tracking */
 .card-title {
   font-size: 17px;
   font-weight: 700;
@@ -152,12 +152,12 @@ ul { list-style: none; }
   color: var(--ink);
 }
 
-/* Body — near-zero tracking, comfortable leading */
+/* Body â€” near-zero tracking, comfortable leading */
 .body-lg { font-size: 18px; line-height: 1.70; color: var(--muted); letter-spacing: 0em; }
 .body-md { font-size: 15px; line-height: 1.72; color: var(--muted); letter-spacing: 0em; }
 .body-sm { font-size: 13px; line-height: 1.65; color: var(--muted); letter-spacing: 0em; }
 
-/* Label / eyebrow — small text: slightly positive tracking for legibility */
+/* Label / eyebrow â€” small text: slightly positive tracking for legibility */
 .label {
   font-size: 11px;
   font-weight: 700;
@@ -167,7 +167,7 @@ ul { list-style: none; }
 }
 .label-blue { color: var(--blue); }
 
-/* ── Material System ─────────────────────────────────────────────────────── */
+/* â”€â”€ Material System â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* Apple principle: translucent layers float over content; bright top edge = light catch */
 
 .mat-nav {
@@ -195,7 +195,7 @@ ul { list-style: none; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), var(--sh-xl);
 }
 
-/* ── Pill Badge ──────────────────────────────────────────────────────────── */
+/* â”€â”€ Pill Badge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .pill {
   display: inline-flex;
   align-items: center;
@@ -223,7 +223,7 @@ ul { list-style: none; }
   color: var(--blue-3);
 }
 
-/* ── Buttons — Apple: feedback on pointer-DOWN, not click ────────────────── */
+/* â”€â”€ Buttons â€” Apple: feedback on pointer-DOWN, not click â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -246,7 +246,7 @@ ul { list-style: none; }
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
-/* Apple: scale down on press — instant, not delayed */
+/* Apple: scale down on press â€” instant, not delayed */
 .btn:active { transform: scale(0.96); }
 
 .btn-primary {
@@ -290,7 +290,7 @@ ul { list-style: none; }
 .btn-sm { padding: 7px 14px; font-size: 13px; border-radius: var(--r-xs); }
 .btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 
-/* ── Cards ───────────────────────────────────────────────────────────────── */
+/* â”€â”€ Cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* Apple: spring hover from current position, not a scripted move */
 .card {
   background: var(--bg);
@@ -312,7 +312,7 @@ ul { list-style: none; }
 .card:active { transform: translateY(-1px) scale(0.99); }
 .card-blue:hover { border-color: rgba(95,97,237,0.28); box-shadow: 0 8px 32px rgba(95,97,237,0.10); }
 
-/* Glass card — Apple glassmorphism: blur + bright edge + deeper shadow */
+/* Glass card â€” Apple glassmorphism: blur + bright edge + deeper shadow */
 .glass-card {
   background: var(--mat-card);
   backdrop-filter: var(--mat-card-blur);
@@ -322,7 +322,7 @@ ul { list-style: none; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), var(--sh-xl);
 }
 
-/* ── Navigation — Apple: translucent material, content scrolls under ─────── */
+/* â”€â”€ Navigation â€” Apple: translucent material, content scrolls under â”€â”€â”€â”€â”€â”€â”€ */
 .site-nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -373,7 +373,7 @@ ul { list-style: none; }
 .nav-ham:active { background: rgba(0,0,0,0.06); }
 .nav-ham span { display: block; width: 18px; height: 1.5px; background: var(--ink-3); border-radius: 2px; transition: transform 0.24s var(--ease-out), opacity 0.2s; }
 
-/* Mob menu — Apple: slides in from the same direction it came, spring easing */
+/* Mob menu â€” Apple: slides in from the same direction it came, spring easing */
 .mob-menu {
   display: none;
   position: fixed;
@@ -387,7 +387,7 @@ ul { list-style: none; }
   gap: 2px;
   overflow-y: auto;
   border-top: 1px solid var(--border-3);
-  /* Apple: enter from the same direction — slides down */
+  /* Apple: enter from the same direction â€” slides down */
   animation: slideDown var(--t-base) var(--ease-out) both;
 }
 .mob-menu.open { display: flex; }
@@ -408,7 +408,7 @@ ul { list-style: none; }
 
 @media (max-width: 1000px) { .nav-links { display: none; } .nav-ham { display: flex; } }
 
-/* ── Hero ────────────────────────────────────────────────────────────────── */
+/* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero {
   min-height: 100vh;
   padding-top: var(--nav-h);
@@ -418,7 +418,7 @@ ul { list-style: none; }
   overflow: hidden;
   background: var(--bg);
 }
-/* Subtle radial gradient — Apple: understated, not aggressive */
+/* Subtle radial gradient â€” Apple: understated, not aggressive */
 .hero::before {
   content: '';
   position: absolute;
@@ -451,7 +451,7 @@ ul { list-style: none; }
   letter-spacing: 0;
 }
 
-/* ── Hero Visual — Apple glass card with depth ───────────────────────────── */
+/* â”€â”€ Hero Visual â€” Apple glass card with depth â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero-visual-wrap { width: 100%; max-width: 920px; position: relative; }
 .hero-glass-card {
   background: rgba(255,255,255,0.68);
@@ -474,7 +474,7 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
-/* ── OS Visualization ────────────────────────────────────────────────────── */
+/* â”€â”€ OS Visualization â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .os-canvas {
   width: 100%; padding: 36px 36px 28px;
   display: flex; flex-direction: column; align-items: center; gap: 0; position: relative;
@@ -531,14 +531,14 @@ ul { list-style: none; }
 }
 .os-flow-chip .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: breathe 2.2s ease-in-out infinite; }
 
-/* ── Section Heading ─────────────────────────────────────────────────────── */
+/* â”€â”€ Section Heading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .sh { margin-bottom: 56px; }
 .sh.center { text-align: center; }
 .sh.center .body-lg { max-width: 560px; margin: 12px auto 0; }
 .sh .label { margin-bottom: 10px; }
 .sh .section-title { margin-bottom: 12px; }
 
-/* ── Feature Grid ────────────────────────────────────────────────────────── */
+/* â”€â”€ Feature Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .feat-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .feat-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
 .feat-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
@@ -577,7 +577,7 @@ ul { list-style: none; }
 .feat-icon-green  { background: var(--green-soft); color: var(--green); }
 .feat-icon-amber  { background: rgba(245,158,11,0.08); color: var(--amber); }
 
-/* ── Tags ────────────────────────────────────────────────────────────────── */
+/* â”€â”€ Tags â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .tag {
   display: inline-flex; align-items: center; gap: 4px;
   padding: 3px 9px; border-radius: var(--r-pill);
@@ -590,7 +590,7 @@ ul { list-style: none; }
 .tag-red    { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2); color: #dc2626; }
 .tag-amber  { background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.22); color: #b45309; }
 
-/* ── Step Flow ───────────────────────────────────────────────────────────── */
+/* â”€â”€ Step Flow â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .step-flow { display: flex; flex-direction: column; gap: 0; }
 .step-row  { display: flex; align-items: flex-start; gap: 16px; }
 .step-spine { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
@@ -606,7 +606,7 @@ ul { list-style: none; }
 .step-body h4 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; margin-top: 4px; letter-spacing: -0.008em; }
 .step-body p  { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.65; }
 
-/* ── Orchestration ───────────────────────────────────────────────────────── */
+/* â”€â”€ Orchestration â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .orch-wrap {
   background: var(--bg-soft);
   border: 1px solid var(--border);
@@ -680,7 +680,7 @@ ul { list-style: none; }
 .orch-reset:hover { color: var(--ink); }
 .orch-reset:active { transform: scale(0.96); }
 
-/* ── Problem Library ─────────────────────────────────────────────────────── */
+/* â”€â”€ Problem Library â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .prob-search {
   width: 100%; background: var(--bg);
   border: 1px solid var(--border-2); border-radius: var(--r);
@@ -722,7 +722,7 @@ ul { list-style: none; }
 .prob-impact.medium { color: var(--amber); }
 .prob-impact.low    { color: var(--green); }
 
-/* ── Agent Graph ─────────────────────────────────────────────────────────── */
+/* â”€â”€ Agent Graph â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .ag-layout { display: grid; grid-template-columns: 1fr 340px; gap: 20px; align-items: start; }
 .ag-graph { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--r-2xl); padding: 32px; min-height: 420px; }
 .ag-nodes { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -749,10 +749,10 @@ ul { list-style: none; }
 .ag-section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 7px; }
 .ag-list { display: flex; flex-direction: column; gap: 5px; }
 .ag-list li { font-size: 12px; color: var(--ink-3); display: flex; align-items: baseline; gap: 6px; }
-.ag-list li::before { content: '·'; color: var(--blue); font-weight: 900; flex-shrink: 0; }
+.ag-list li::before { content: 'Â·'; color: var(--blue); font-weight: 900; flex-shrink: 0; }
 .ag-human-note { background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.2); border-radius: var(--r-xs); padding: 9px 12px; font-size: 12px; color: var(--ink-3); line-height: 1.55; }
 
-/* ── Audit Dashboard ─────────────────────────────────────────────────────── */
+/* â”€â”€ Audit Dashboard â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .audit-dash { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-2xl); overflow: hidden; box-shadow: var(--sh); }
 .audit-dash-bar { background: var(--bg-soft); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
 .audit-dash-title { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 0.04em; }
@@ -776,7 +776,7 @@ ul { list-style: none; }
 .audit-met.bad span { color: #dc2626; }
 .audit-met.good span{ color: var(--green); }
 
-/* ── ROI Calculator ──────────────────────────────────────────────────────── */
+/* â”€â”€ ROI Calculator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .roi-shell { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-2xl); overflow: hidden; box-shadow: var(--sh); }
 .roi-grid { display: grid; grid-template-columns: 1fr 1fr; }
 .roi-inputs { padding: 36px; border-right: 1px solid var(--border); }
@@ -800,7 +800,7 @@ ul { list-style: none; }
 .c-red    { color: var(--red); }
 .roi-disclaimer { font-size: 11px; color: var(--muted-2); line-height: 1.65; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
 
-/* ── Leak Scanner ────────────────────────────────────────────────────────── */
+/* â”€â”€ Leak Scanner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .leak-shell { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-2xl); overflow: hidden; box-shadow: var(--sh); }
 .leak-tabs { display: flex; border-bottom: 1px solid var(--border); overflow-x: auto; }
 .leak-tab {
@@ -823,7 +823,7 @@ ul { list-style: none; }
 .leak-metric { font-size: 32px; font-weight: 900; letter-spacing: -0.035em; color: #dc2626; line-height: 1; font-variant-numeric: tabular-nums; }
 .leak-desc { font-size: 12px; color: var(--muted); margin-top: 5px; line-height: 1.6; }
 
-/* ── Industry Grid ───────────────────────────────────────────────────────── */
+/* â”€â”€ Industry Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .ind-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
 .ind-card {
   background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg);
@@ -834,7 +834,7 @@ ul { list-style: none; }
 .ind-card::after {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: var(--acc, var(--blue));
-  /* Apple: enter/exit same axis — scaleX from left, so spatial consistency */
+  /* Apple: enter/exit same axis â€” scaleX from left, so spatial consistency */
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.35s var(--ease-spring);
 }
@@ -849,7 +849,7 @@ ul { list-style: none; }
 .ind-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
 .ind-tag { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; background: var(--bg-subtle); color: var(--muted); border: 1px solid var(--border); }
 
-/* ── Integration Visual ──────────────────────────────────────────────────── */
+/* â”€â”€ Integration Visual â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .int-layout { display: grid; grid-template-columns: 1fr 56px 1fr 56px 1fr; gap: 0; align-items: center; }
 .int-layer { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 20px; box-shadow: var(--sh-sm); }
 .int-layer h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 14px; text-align: center; }
@@ -861,7 +861,7 @@ ul { list-style: none; }
 .int-xizo p  { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
 .int-chips { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
 
-/* ── Human AI ────────────────────────────────────────────────────────────── */
+/* â”€â”€ Human AI â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hai-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
 .hai-card {
   background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px;
@@ -873,9 +873,9 @@ ul { list-style: none; }
 .hai-card p  { font-size: 13px; color: var(--muted); line-height: 1.68; margin: 0; }
 .hai-actions { margin-top: 16px; display: flex; flex-direction: column; gap: 6px; }
 .hai-action { font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 7px; }
-.hai-action::before { content: '→'; color: var(--blue); font-size: 11px; }
+.hai-action::before { content: 'â†’'; color: var(--blue); font-size: 11px; }
 
-/* ── Use Cases ───────────────────────────────────────────────────────────── */
+/* â”€â”€ Use Cases â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .uc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .uc-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--sh-sm); }
 .uc-head { background: var(--bg-soft); border-bottom: 1px solid var(--border); padding: 22px 24px; }
@@ -897,7 +897,7 @@ ul { list-style: none; }
 .uc-met-before { font-size: 13px; font-weight: 800; color: #dc2626; font-variant-numeric: tabular-nums; }
 .uc-met-after  { font-size: 13px; font-weight: 800; color: var(--green); font-variant-numeric: tabular-nums; }
 
-/* ── Resources ───────────────────────────────────────────────────────────── */
+/* â”€â”€ Resources â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .res-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
 .res-card {
   background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden;
@@ -914,7 +914,7 @@ ul { list-style: none; }
 .res-card-foot { padding: 14px 22px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
 .res-time { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-2); }
 
-/* ── CTA Band ────────────────────────────────────────────────────────────── */
+/* â”€â”€ CTA Band â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cta-band {
   background: linear-gradient(140deg, rgba(95,97,237,0.06) 0%, rgba(145,145,255,0.03) 100%);
   border: 1px solid rgba(95,97,237,0.11);
@@ -930,7 +930,7 @@ ul { list-style: none; }
 }
 .cta-band .section-title { margin-bottom: 14px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-/* ── Metric ──────────────────────────────────────────────────────────────── */
+/* â”€â”€ Metric â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .metric-num {
   font-size: clamp(34px, 5vw, 52px);
   font-weight: 900;
@@ -940,7 +940,7 @@ ul { list-style: none; }
 }
 .metric-label { font-size: 13px; color: var(--muted); margin-top: 6px; }
 
-/* ── Contact ─────────────────────────────────────────────────────────────── */
+/* â”€â”€ Contact â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .contact-shell { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: start; }
 .contact-info > p { font-size: 16px; color: var(--muted); line-height: 1.72; margin-bottom: 36px; }
 .contact-deets { display: flex; flex-direction: column; gap: 18px; }
@@ -969,7 +969,7 @@ ul { list-style: none; }
 .form-field textarea { min-height: 96px; resize: vertical; }
 .form-field select { appearance: none; cursor: pointer; }
 
-/* ── Capability Strip ────────────────────────────────────────────────────── */
+/* â”€â”€ Capability Strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cap-strip { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 0; }
 .cap-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; padding: 3px 24px; }
 .cap-item { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 11px; font-weight: 600; padding: 3px 0; white-space: nowrap; transition: color var(--t-fast); letter-spacing: 0.02em; }
@@ -977,7 +977,7 @@ ul { list-style: none; }
 .cap-sep { display: inline-block; width: 1px; height: 11px; background: var(--border-2); margin: 0 14px; flex-shrink: 0; }
 .cap-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
 
-/* ── Footer ──────────────────────────────────────────────────────────────── */
+/* â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .footer { background: var(--bg-soft); border-top: 1px solid var(--border); padding: 60px 0 32px; }
 .footer-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
 .footer-logo { height: 22px; width: auto; margin-bottom: 14px; filter: brightness(0); }
@@ -993,8 +993,8 @@ ul { list-style: none; }
 .footer-legal a { font-size: 12px; color: var(--muted-2); transition: color var(--t-fast); }
 .footer-legal a:hover { color: var(--ink); }
 
-/* ── Page Transition ─────────────────────────────────────────────────────── */
-/* Apple: spatial consistency — enter/exit along the same axis */
+/* â”€â”€ Page Transition â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Apple: spatial consistency â€” enter/exit along the same axis */
 .page-enter {
   animation: pageEnter var(--t-base) var(--ease-out) both;
 }
@@ -1003,7 +1003,7 @@ ul { list-style: none; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Animations ──────────────────────────────────────────────────────────── */
+/* â”€â”€ Animations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes breathe {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.55; transform: scale(0.80); }
@@ -1017,7 +1017,7 @@ ul { list-style: none; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Reduced Motion — Apple: swap springs for cross-fades ────────────────── */
+/* â”€â”€ Reduced Motion â€” Apple: swap springs for cross-fades â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -1040,238 +1040,403 @@ ul { list-style: none; }
   .btn:hover { transform: none; }
 }
 
-/* ── Reduced Transparency — Apple: solidify materials ────────────────────── */
+/* â”€â”€ Reduced Transparency â€” Apple: solidify materials â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (prefers-reduced-transparency: reduce) {
   .site-nav { background: white; backdrop-filter: none; -webkit-backdrop-filter: none; }
   .mob-menu { background: white; backdrop-filter: none; -webkit-backdrop-filter: none; }
   .hero-glass-card { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; border: 1px solid var(--border-2); }
 }
 
-/* ── High Contrast ───────────────────────────────────────────────────────── */
+/* â”€â”€ High Contrast â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (prefers-contrast: more) {
   :root { --border: rgba(0,0,0,0.2); --border-2: rgba(0,0,0,0.3); --muted: #4a4a4a; }
   .card, .feat-card, .ind-card, .prob-card { border-width: 2px; }
   .btn-outline { border-width: 2px; }
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   RESPONSIVE — Mobile-first, every breakpoint covered
-   ══════════════════════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   RESPONSIVE  â€”  All Devices: 320px â†’ 1440px+
+   Breakpoints: 1440 Â· 1200 Â· 960 Â· 768 Â· 480 Â· 380 Â· 320
+   Covers: CSS class grids, inline style grids, typography, spacing,
+           OS canvas, nav, hero, cards, comparison table, floating buttons
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ── Tablet (≤ 960px) ──────────────────────────────────────────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘  LARGE DESKTOP  â‰¥ 1440px  â€” loosen max-width, bigger type
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (min-width: 1440px) {
+  :root { --maxw: 1320px; }
+  .hero-title    { font-size: 88px; }
+  .section-title { font-size: 54px; }
+  .section       { padding: 112px 0; }
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘¡ DESKTOP  1200pxâ€“1440px  â€” standard desktop (default tokens apply)
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  :root { --maxw: 1160px; }
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘¢ TABLET LANDSCAPE  â‰¤ 1024px
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (max-width: 1024px) {
+  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 48px); }
+
+  /* Nav: hide some links at this width */
+  .nav-links { gap: 0; }
+  .nav-link  { padding: 6px 9px; font-size: 13px; }
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘£ TABLET PORTRAIT  â‰¤ 960px
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 960px) {
-  /* Wrap */
   .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 40px); }
 
-  /* Grids → 2 col */
+  /* â”€â”€ CSS Class Grids â”€â”€ */
   .feat-grid-4 { grid-template-columns: repeat(2, 1fr); }
   .feat-grid-3 { grid-template-columns: repeat(2, 1fr); }
   .ind-grid    { grid-template-columns: repeat(2, 1fr); }
   .res-grid    { grid-template-columns: repeat(2, 1fr); }
+  .hai-grid    { grid-template-columns: 1fr; }
+  .uc-grid     { grid-template-columns: 1fr; }
+  .roi-grid    { grid-template-columns: 1fr; }
+  .ag-layout   { grid-template-columns: 1fr; }
+  .contact-shell { grid-template-columns: 1fr; gap: 32px; }
+  .form-row    { grid-template-columns: 1fr; }
+  .leak-items  { grid-template-columns: 1fr; }
+  .int-layout  { grid-template-columns: 1fr; gap: 14px; }
+  .int-arrow   { display: none; }
 
-  /* Single-col layouts */
-  .hai-grid      { grid-template-columns: 1fr; }
-  .uc-grid       { grid-template-columns: 1fr; }
-  .roi-grid      { grid-template-columns: 1fr; }
-  .ag-layout     { grid-template-columns: 1fr; }
-  .contact-shell { grid-template-columns: 1fr; gap: 36px; }
-  .form-row      { grid-template-columns: 1fr; }
-  .leak-items    { grid-template-columns: 1fr; }
+  /* â”€â”€ Inline Style Grid Overrides â”€â”€ */
+  /* Business problem "1fr 1fr" two-col */
+  .section [style*="gridTemplateColumns:\"1fr 1fr\""],
+  .section [style*='gridTemplateColumns:"1fr 1fr"'],
+  .section [style*="gridTemplateColumns: \"1fr 1fr\""] {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  /* Stages "1fr 1fr" */
+  .section [style*="gridTemplateColumns:\"1fr 1fr\",gap:72"],
+  .section [style*="gridTemplateColumns:\"1fr 1fr\",gap:56"],
+  .section [style*="gridTemplateColumns:\"1fr 1fr\",gap:48"] {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  /* 3-col AI OS examples */
+  .section [style*="gridTemplateColumns:\"repeat(3,1fr)\""] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* "100px 1fr" stage rows â†’ stack */
+  .section [style*="gridTemplateColumns:\"100px 1fr\""] {
+    grid-template-columns: 60px 1fr !important;
+    gap: 20px !important;
+  }
+  /* Comparison table 3-col */
+  [style*="gridTemplateColumns: '1fr 1.1fr 1.1fr'"],
+  [style*='gridTemplateColumns: "1fr 1.1fr 1.1fr"'] {
+    grid-template-columns: 1fr 1.4fr !important;
+  }
 
-  /* ROI */
-  .roi-inputs { border-right: none; border-bottom: 1px solid var(--border); }
-
-  /* Integration layout → stack */
-  .int-layout { grid-template-columns: 1fr; gap: 12px; }
-  .int-arrow  { display: none; }
-
-  /* Footer */
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
-
-  /* CTA */
-  .cta-band { padding: 56px 32px; }
-
-  /* Comparison table — hide dimension column on small tablet */
-  .cmp-dim { display: none; }
+  /* â”€â”€ Components â”€â”€ */
+  .roi-inputs  { border-right: none; border-bottom: 1px solid var(--border); }
+  .footer-top  { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .cta-band    { padding: 56px 32px; }
+  .ag-panel    { position: static; }
 }
 
-/* ── Mobile (≤ 768px) ──────────────────────────────────────────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘¤ MOBILE LANDSCAPE / SMALL TABLET  â‰¤ 768px
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 768px) {
-  /* Typography scale down */
-  .hero-title   { font-size: clamp(36px, 10vw, 52px); letter-spacing: -0.025em; }
-  .section-title{ font-size: clamp(24px, 7vw, 36px);  letter-spacing: -0.018em; }
-  .body-lg      { font-size: 16px; }
-  .body-md      { font-size: 14px; }
-  .metric-num   { font-size: clamp(28px, 8vw, 40px); }
+  /* â”€â”€ Typography â”€â”€ */
+  .hero-title    { font-size: clamp(34px, 10vw, 52px); letter-spacing: -0.022em; line-height: 1.06; }
+  .section-title { font-size: clamp(22px, 6.5vw, 36px); letter-spacing: -0.016em; }
+  .body-lg       { font-size: 16px; }
+  .body-md       { font-size: 14px; }
+  .metric-num    { font-size: clamp(28px, 8vw, 40px); }
 
-  /* Sections */
-  .section    { padding: 64px 0; }
-  .section-sm { padding: 44px 0; }
-  .sh         { margin-bottom: 36px; }
+  /* â”€â”€ Spacing â”€â”€ */
+  .section    { padding: 60px 0; }
+  .section-sm { padding: 40px 0; }
+  .sh         { margin-bottom: 32px; }
+  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 36px); }
 
-  /* Hero */
-  .hero-inner { padding: 52px 0 36px; gap: 28px; }
-  .hero-sub   { font-size: 16px; max-width: 100%; }
-  .btn-row    { flex-direction: column; align-items: stretch; }
-  .btn-row .btn { justify-content: center; }
+  /* â”€â”€ Nav â”€â”€ */
+  .nav-links  { display: none; }
+  .nav-ham    { display: flex; }
+  .nav-cta    { display: none; } /* hide full CTA button; hamburger takes over */
 
-  /* OS Canvas — compress for mobile */
-  .hero-glass-card { border-radius: 18px; }
-  .os-canvas       { padding: 20px 16px 16px; }
-  .os-spokes       { gap: 0; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  /* â”€â”€ Hero â”€â”€ */
+  .hero       { min-height: auto; padding-bottom: 0; }
+  .hero-inner { padding: 48px 0 32px; gap: 24px; flex-direction: column; }
+  .hero-copy  { text-align: center; }
+  .hero-sub   { font-size: 15px; max-width: 100%; margin-left: auto; margin-right: auto; }
+  .hero-visual-wrap { max-width: 100%; }
+  .hero-glass-card  { border-radius: 16px; }
+  .btn-row    { flex-direction: column; align-items: stretch; width: 100%; }
+  .btn-row .btn { justify-content: center; width: 100%; }
+
+  /* â”€â”€ OS Canvas â”€â”€ */
+  .os-canvas        { padding: 18px 14px 14px; }
+  .os-spokes        { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
   .os-spokes::-webkit-scrollbar { display: none; }
-  .os-connector-col { flex-shrink: 0; min-width: 66px; }
-  .os-node          { min-width: 60px; padding: 8px 6px; }
-  .os-node-label    { font-size: 8.5px; }
-  .os-center-hub    { padding: 10px 16px; }
-  .os-hub-name      { font-size: 13px; }
-  .os-data-flow     { gap: 4px; }
-  .os-flow-chip     { font-size: 9px; padding: 3px 8px; }
+  .os-connector-col { flex-shrink: 0; min-width: 64px; scroll-snap-align: start; }
+  .os-node          { min-width: 58px; padding: 8px 5px; border-radius: 8px; }
+  .os-node-label    { font-size: 8px; }
+  .os-center-hub    { padding: 9px 14px; }
+  .os-hub-label     { font-size: 8px; }
+  .os-hub-name      { font-size: 12px; }
+  .os-data-flow     { gap: 4px; flex-wrap: wrap; }
+  .os-flow-chip     { font-size: 9px; padding: 3px 7px; }
 
-  /* Capability strip — single row, scroll */
-  .cap-strip .cap-row { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding: 3px 20px; }
+  /* â”€â”€ Capability strip â”€â”€ */
+  .cap-strip .cap-row { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding: 4px 18px; -webkit-overflow-scrolling: touch; }
   .cap-strip .cap-row::-webkit-scrollbar { display: none; }
 
-  /* Problem cards — full width */
+  /* â”€â”€ All CSS grids â†’ 1 col â”€â”€ */
   .feat-grid-2, .feat-grid-3, .feat-grid-4 { grid-template-columns: 1fr; }
-  .ind-grid    { grid-template-columns: 1fr; }
-  .res-grid    { grid-template-columns: 1fr; }
+  .ind-grid, .res-grid { grid-template-columns: 1fr; }
 
-  /* Step flow — tighter spacing */
-  .step-body { padding-bottom: 18px; }
+  /* â”€â”€ ALL inline grids â†’ single column â”€â”€ */
+  .section [style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  /* Keep stage row number + text side by side */
+  .section [style*="gridTemplateColumns:\"100px 1fr\""],
+  .section [style*='gridTemplateColumns:"100px 1fr"'] {
+    grid-template-columns: 52px 1fr !important;
+    gap: 16px !important;
+  }
+  /* Metrics: keep 2-col on mobile */
+  .feat-grid-4 { grid-template-columns: repeat(2, 1fr); }
 
-  /* Orchestration — stack on mobile */
-  .orch-wrap    { padding: 20px 16px; border-radius: var(--r-xl); }
-  .orch-card    { padding: 10px 12px; }
-  .orch-agent-name { font-size: 12px; }
+  /* â”€â”€ Comparison table â”€â”€ */
+  [style*="gridTemplateColumns: '1fr 1.1fr 1.1fr'"],
+  [style*='gridTemplateColumns: "1fr 1.1fr 1.1fr"'] {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* â”€â”€ Orchestration â”€â”€ */
+  .orch-wrap     { padding: 18px 14px; border-radius: var(--r-xl); }
+  .orch-card     { padding: 10px 12px; }
+  .orch-agent-name { font-size: 11.5px; }
+  .orch-sub      { font-size: 11px; }
   .orch-controls { flex-wrap: wrap; gap: 8px; }
 
-  /* Audit dashboard */
-  .audit-opp  { grid-template-columns: 36px 1fr; }
-  .audit-mets { gap: 10px; }
-  .audit-counts { gap: 12px; }
+  /* â”€â”€ Audit â”€â”€ */
+  .audit-opp    { grid-template-columns: 36px 1fr; }
+  .audit-mets   { gap: 10px; flex-wrap: wrap; }
+  .audit-counts { gap: 10px; }
+  .audit-dash-bar { flex-wrap: wrap; gap: 10px; padding: 14px 16px; }
 
-  /* Leak scanner */
-  .leak-body  { padding: 20px 16px; }
-  .leak-tabs .leak-tab { font-size: 12px; padding: 10px 12px; min-width: 80px; }
+  /* â”€â”€ Leak scanner â”€â”€ */
+  .leak-body  { padding: 18px 14px; }
+  .leak-tabs  { overflow-x: auto; }
+  .leak-tab   { font-size: 12px; padding: 10px 12px; min-width: 80px; }
+  .leak-items { grid-template-columns: 1fr; }
 
-  /* ROI */
-  .roi-inputs, .roi-results { padding: 24px 20px; }
-  .roi-result-value { font-size: 30px; }
+  /* â”€â”€ ROI â”€â”€ */
+  .roi-inputs, .roi-results { padding: 22px 18px; }
+  .roi-result-value { font-size: 28px; }
 
-  /* Comparison table — 2 cols (agents + xizo), no dimension label */
-  .cmp-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* â”€â”€ Agent graph â”€â”€ */
+  .ag-graph  { padding: 18px 14px; min-height: auto; }
+  .ag-nodes  { gap: 7px; }
+  .ag-node   { min-width: 88px; padding: 10px 7px; }
+  .ag-panel  { position: static; margin-top: 14px; }
 
-  /* Agent graph */
-  .ag-graph   { padding: 20px 16px; min-height: auto; }
-  .ag-nodes   { gap: 7px; }
-  .ag-node    { min-width: 90px; padding: 10px 8px; }
-  .ag-panel   { position: static; margin-top: 16px; }
-
-  /* Use cases */
-  .uc-head { padding: 18px 18px; }
-  .uc-body { padding: 18px; }
+  /* â”€â”€ Use cases â”€â”€ */
+  .uc-head { padding: 16px 18px; }
+  .uc-body { padding: 16px 18px; }
   .uc-mets { flex-direction: column; }
 
-  /* Resources */
+  /* â”€â”€ Resources â”€â”€ */
   .res-card-top, .res-card-body, .res-card-foot { padding: 14px 16px; }
 
-  /* Footer */
-  .footer-top   { grid-template-columns: 1fr; gap: 28px; }
-  .footer-bottom{ flex-direction: column; align-items: flex-start; gap: 10px; }
-  .footer-legal { flex-wrap: wrap; gap: 12px; }
+  /* â”€â”€ Footer â”€â”€ */
+  .footer     { padding: 48px 0 24px; }
+  .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .footer-legal  { flex-wrap: wrap; gap: 10px; }
 
-  /* CTA band */
+  /* â”€â”€ CTA â”€â”€ */
   .cta-band { padding: 44px 20px; border-radius: var(--r-xl); }
-  .cta-band .section-title { font-size: clamp(22px, 6vw, 32px); }
-  .btn-row.center { flex-direction: column; align-items: center; }
+  .cta-band .section-title { font-size: clamp(20px, 6vw, 30px); }
 
-  /* Contact form */
-  .contact-form-wrap { padding: 24px 18px; }
+  /* â”€â”€ Contact â”€â”€ */
+  .contact-form-wrap { padding: 22px 16px; }
 
-  /* Nav CTA — hide "Request AI Audit" label on small screen to save space */
-  .nav-cta span { display: none; }
-
-  /* Floating actions — nudge inward on mobile */
-  /* (buttons shrink to 44px for touch targets) */
+  /* â”€â”€ Problem cards â”€â”€ */
+  .prob-grid { grid-template-columns: 1fr; }
 }
 
-/* ── Small Mobile (≤ 480px) ───────────────────────────────────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘¥ MOBILE PORTRAIT  â‰¤ 480px
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 480px) {
   :root { --nav-h: 54px; }
-  .wrap { width: calc(100% - 32px); }
+  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 28px); }
 
-  .hero-title { font-size: clamp(32px, 11vw, 44px); line-height: 1.08; }
-  .hero-sub   { font-size: 15px; }
+  /* â”€â”€ Typography â”€â”€ */
+  .hero-title    { font-size: clamp(30px, 11vw, 42px); line-height: 1.07; }
+  .hero-sub      { font-size: 14.5px; }
+  .section-title { font-size: clamp(20px, 7vw, 30px); }
+  .body-lg       { font-size: 15px; }
+  .metric-num    { font-size: clamp(24px, 9vw, 34px); }
+  .metric-label  { font-size: 11.5px; }
 
-  /* OS canvas — even more compact */
-  .os-canvas    { padding: 16px 12px 12px; }
-  .os-center-hub{ padding: 8px 12px; }
-  .os-hub-label { font-size: 8px; }
-  .os-hub-name  { font-size: 12px; }
-  .os-node      { min-width: 52px; padding: 7px 4px; border-radius: 8px; }
-  .os-node-label{ font-size: 7.5px; }
+  /* â”€â”€ Spacing â”€â”€ */
+  .section    { padding: 44px 0; }
+  .section-sm { padding: 32px 0; }
+  .sh         { margin-bottom: 24px; }
 
-  /* Problem grid — single col always */
-  .prob-grid { grid-template-columns: 1fr; }
+  /* â”€â”€ Nav logo â”€â”€ */
+  .nav-logo { height: 22px; }
 
-  /* Audit dash counts — smaller numbers */
-  .audit-count-num { font-size: 18px; }
-  .audit-dash-bar { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+  /* â”€â”€ Hero â”€â”€ */
+  .hero-inner { padding: 40px 0 28px; gap: 20px; }
+  .pill       { font-size: 10.5px; padding: 5px 10px; }
 
-  /* Sections tighter */
-  .section    { padding: 48px 0; }
-  .section-sm { padding: 36px 0; }
-  .sh         { margin-bottom: 28px; }
+  /* â”€â”€ OS canvas â”€â”€ */
+  .os-canvas        { padding: 14px 10px 12px; }
+  .os-center-hub    { padding: 8px 10px; }
+  .os-hub-label     { font-size: 7.5px; }
+  .os-hub-name      { font-size: 11px; }
+  .os-connector-col { min-width: 54px; }
+  .os-node          { min-width: 50px; padding: 7px 4px; border-radius: 7px; }
+  .os-node-label    { font-size: 7px; }
+  .os-data-flow     { display: none; } /* hide chips on tiny screen */
 
-  /* Pill badge — hide on very small */
-  .pill { font-size: 11px; padding: 5px 10px; }
+  /* â”€â”€ Buttons â”€â”€ */
+  .btn-lg { padding: 12px 18px; font-size: 14px; }
+  .btn    { min-height: 44px; }
 
-  /* Buttons — full width on small screens */
-  .btn-lg { padding: 12px 20px; font-size: 14px; }
+  /* â”€â”€ Cards â”€â”€ */
+  .feat-card  { padding: 18px 16px; }
+  .feat-icon  { width: 34px; height: 34px; font-size: 15px; }
+  .card       { padding: 18px; }
 
-  /* Feature cards */
-  .feat-card { padding: 20px 18px; }
-  .feat-icon  { width: 36px; height: 36px; }
+  /* â”€â”€ Metrics grid stays 2-col â”€â”€ */
+  .feat-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
 
-  /* Floating actions — smaller */
-  /* Handled via inline style in JS, just override z-index here */
+  /* â”€â”€ Orchestration â”€â”€ */
+  .orch-wrap { padding: 16px 12px; }
 
-  /* Footer */
-  .footer { padding: 44px 0 24px; }
-  .footer-top { gap: 22px; }
+  /* â”€â”€ Agent graph â”€â”€ */
+  .ag-node   { min-width: 78px; }
+  .ag-node-name { font-size: 10px; }
 
-  /* Metric cards */
-  .feat-card[style*="32px"] { padding: 24px 16px !important; }
-  .metric-num { font-size: clamp(26px, 9vw, 36px); }
-  .metric-label { font-size: 12px; }
+  /* â”€â”€ Step row â”€â”€ */
+  .section [style*="gridTemplateColumns:\"100px 1fr\""],
+  .section [style*='gridTemplateColumns:"100px 1fr"'] {
+    grid-template-columns: 44px 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* â”€â”€ Footer â”€â”€ */
+  .footer-top { gap: 20px; }
+  .footer     { padding: 36px 0 20px; }
+
+  /* â”€â”€ Leak scanner â”€â”€ */
+  .leak-metric { font-size: 26px; }
+
+  /* â”€â”€ ROI â”€â”€ */
+  .roi-result-value { font-size: 26px; }
 }
 
-/* ── Extra Small (≤ 380px) ────────────────────────────────────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘¦ EXTRA SMALL  â‰¤ 380px  (iPhone SE, Galaxy A series, older phones)
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 380px) {
-  .hero-title { font-size: 30px; }
-  .wrap       { width: calc(100% - 24px); }
-  .os-spokes  { gap: 0; }
-  .os-node    { min-width: 46px; }
-  .os-node-label { display: none; } /* just show icons on tiny screens */
-  .nav-actions .btn-outline { display: none; } /* hide login btn on tiny screen */
+  :root { --nav-h: 52px; }
+  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 24px); }
+
+  .hero-title { font-size: 28px; letter-spacing: -0.016em; }
+
+  /* OS canvas â€” icons only, no labels */
+  .os-node-label  { display: none; }
+  .os-connector-col { min-width: 46px; }
+  .os-node        { min-width: 44px; padding: 8px 4px; }
+
+  /* Nav: hide login button to save space */
+  .nav-actions .btn-outline { display: none; }
+
+  /* Metrics â†’ single column on very small */
+  .feat-grid-4 { grid-template-columns: 1fr; }
+
+  /* Section heading */
+  .section-title { font-size: 20px; }
+  .sh { margin-bottom: 20px; }
+
+  /* Buttons: full width */
+  .btn { width: 100%; justify-content: center; }
+  .nav-actions .btn-primary { width: auto; }
 }
 
-/* ── Touch — tap target safety net ───────────────────────────────── */
-@media (pointer: coarse) {
-  /* Apple HIG: minimum 44×44px tap target */
-  .btn        { min-height: 44px; }
-  .nav-link   { padding: 10px 12px; }
-  .mob-link   { padding: 16px 0; }
-  .leak-tab   { min-height: 44px; }
-  .prob-filter{ min-height: 36px; }
-  .footer-link{ min-height: 36px; display: inline-flex; align-items: center; }
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘§ MICRO  â‰¤ 320px  (iPhone 5, Galaxy Fold outer, smartwatches)
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (max-width: 320px) {
+  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 20px); }
+  .hero-title   { font-size: 24px; }
+  .section-title{ font-size: 18px; }
+  .os-spokes    { gap: 0; }
+  .os-node      { min-width: 40px; }
+  .feat-card    { padding: 14px 12px; }
+  .pill         { display: none; }
+}
 
-  /* Remove hover effects on touch — they get stuck on first tap */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘¨ LANDSCAPE PHONE  (height < 500px, rotated phone)
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero       { min-height: auto; }
+  .hero-inner { padding: 24px 0 16px; flex-direction: row; align-items: center; gap: 20px; }
+  .hero-visual-wrap { max-width: 55%; }
+  .hero-copy  { text-align: left; }
+  .hero-title { font-size: clamp(22px, 5vw, 32px); }
+  .hero-sub   { font-size: 13px; }
+  .btn-row    { flex-direction: row; }
+  .btn-row .btn { width: auto; }
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘© TOUCH DEVICES  â€” minimum 44Ã—44px Apple HIG tap targets
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (pointer: coarse) {
+  .btn         { min-height: 44px; }
+  .nav-link    { padding: 10px 12px; }
+  .mob-link    { padding: 16px 0; }
+  .leak-tab    { min-height: 44px; }
+  .prob-filter { min-height: 40px; padding: 8px 16px; }
+  .footer-link { min-height: 36px; display: inline-flex; align-items: center; }
+  .ag-node     { min-height: 44px; }
+  .os-node     { min-height: 44px; }
+
+  /* Remove sticky hover states on touch */
   .ind-card:hover,
   .feat-card:hover,
   .res-card:hover,
-  .prob-card:hover { transform: none; box-shadow: var(--sh-sm); }
-  .os-node:hover   { transform: none; }
-  .ag-node:hover   { transform: none; }
+  .prob-card:hover { transform: none !important; box-shadow: var(--sh-sm) !important; }
+  .os-node:hover   { transform: none !important; }
+  .ag-node:hover   { transform: none !important; }
+  .btn:hover       { transform: none !important; }
 }
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   â‘ª PRINT
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media print {
+  .site-nav, .footer, .floating-actions, .btn-primary { display: none !important; }
+  body { font-size: 11pt; color: #000; background: #fff; }
+  .section { padding: 24pt 0; }
+  .wrap { width: 100%; }
+  a[href]:after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
+}
+
