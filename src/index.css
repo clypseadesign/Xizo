@@ -1172,205 +1172,347 @@ ul { list-style: none; }
    â‘¤ MOBILE LANDSCAPE / SMALL TABLET  â‰¤ 768px
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 768px) {
-  /* â”€â”€ Typography â”€â”€ */
-  .hero-title { font-size: clamp(30px, 9vw, 46px); letter-spacing: -0.02em; line-height: 1.08; }
-  .section-title { font-size: clamp(22px, 6.5vw, 36px); letter-spacing: -0.016em; }
-  .body-lg       { font-size: 16px; }
-  .body-md       { font-size: 14px; }
-  .metric-num    { font-size: clamp(28px, 8vw, 40px); }
+  /* ── Layout utility class overrides → all single column on mobile ── */
+  .layout-2col,
+  .layout-2col--mt,
+  .layout-2col-tight,
+  .layout-3col {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .layout-2col--mt { margin-top: 40px; }
 
-  /* â”€â”€ Spacing â”€â”€ */
-  /* ── Spacing ── */
-  .section { padding: 56px 0; }
-  .section-sm { padding: 40px 0; }
-  .sh         { margin-bottom: 32px; }
+  /* Stage row: smaller number column on mobile */
+  .layout-stage-row {
+    grid-template-columns: 60px 1fr !important;
+    gap: 16px !important;
+  }
+
+
+  /* ── Comparison table — convert to card stack on mobile ── */
+  div[style*="1fr 1.1fr 1.1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Hide standard agents column on mobile, show only Xizo column */
+  div[style*="1fr 1.1fr 1.1fr"] > div:nth-child(2) {
+    display: none !important;
+  }
+  /* Comparison section full-width label */
+  div[style*="1fr 1.1fr 1.1fr"] > div:first-child {
+    background: var(--bg-soft);
+    border-left: none !important;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px !important;
+    font-weight: 700;
+    color: var(--ink-3);
+  }
+  div[style*="1fr 1.1fr 1.1fr"] > div:last-child {
+    border-left: none !important;
+    padding: 10px 16px !important;
+  }  
+/* ══════════════════════════════════════════════════════════════════════════════
+   LAYOUT UTILITY CLASSES — responsive grid systems replacing inline styles
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* 2-column side-by-side layout */
+.layout-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.layout-2col--mt { margin-top: 64px; align-items: center; }
+
+/* 3-column layout */
+.layout-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* 2-column tight */
+.layout-2col-tight {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Stage step row: number + content */
+.layout-stage-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+/* ═══════════════════════════════════════════════════════════════
+     MOBILE — All layouts adapt to single column, touch-friendly
+  ═══════════════════════════════════════════════════════════════ */
+
+  /* ── Root tokens ── */
+  :root { --nav-h: 64px; }
+
+  /* ── Spacing & wrap ── */
   .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 32px); }
+  .section    { padding: 52px 0; }
+  .section-sm { padding: 36px 0; }
+  .sh         { margin-bottom: 28px; }
+  .sh.center  { text-align: center; }
+
+  /* ── Typography ── */
+  .hero-title    { font-size: clamp(28px, 8.5vw, 42px); letter-spacing: -0.02em; line-height: 1.1; }
+  .section-title { font-size: clamp(20px, 6vw, 32px); letter-spacing: -0.015em; line-height: 1.18; }
+  .body-lg       { font-size: 15px; line-height: 1.65; }
+  .body-md       { font-size: 14px; }
+  .metric-num    { font-size: clamp(26px, 8vw, 38px); }
+  .metric-label  { font-size: 12px; }
+  .label         { font-size: 11px; }
 
   /* ── Nav ── */
   .nav-links  { display: none; }
   .nav-ham    { display: flex; }
-  .nav-logo { height: 40px; }
-  .nav-cta    { display: none; } /* hide full CTA button; hamburger takes over */
+  .nav-logo   { height: 38px; }
+  .nav-cta    { display: none; }
+  .nav-inner  { width: calc(100% - 28px); }
 
   /* ── Hero ── */
-  .hero       { min-height: auto; padding-bottom: 0; }
-  .hero-inner { padding: 56px 0 40px; gap: 28px; flex-direction: column; align-items: center; }
-  .hero-copy  { text-align: center; max-width: 100%; width: 100%; }
-  .hero-sub   { font-size: 15px; max-width: 100%; margin-left: auto; margin-right: auto; }
-  .hero-visual-wrap { max-width: 100%; }
+  .hero { min-height: auto; }
+  .hero-inner {
+    padding: 48px 0 36px;
+    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-copy { text-align: center; width: 100%; max-width: 100%; }
+  .hero-sub  { font-size: 15px; max-width: 100%; }
+  .hero-visual-wrap { width: 100%; max-width: 100%; }
   .hero-glass-card  { border-radius: 16px; }
-  .btn-row    { flex-direction: column; align-items: stretch; width: 100%; }
+
+  /* ── Buttons ── */
+  .btn-row { flex-direction: column; align-items: stretch; width: 100%; gap: 10px; }
   .btn-row .btn { justify-content: center; width: 100%; }
 
+  /* ── ALL CSS grids → 1 column ── */
+  .feat-grid-2,
+  .feat-grid-3,
+  .feat-grid-4 { grid-template-columns: 1fr; gap: 12px; }
+  .ind-grid    { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .res-grid    { grid-template-columns: 1fr; gap: 12px; }
+  .hai-grid, .uc-grid, .roi-grid,
+  .ag-layout, .prob-grid { grid-template-columns: 1fr; }
+  .contact-shell { grid-template-columns: 1fr; gap: 28px; }
+  .form-row      { grid-template-columns: 1fr; gap: 12px; }
+  .leak-items    { grid-template-columns: 1fr; }
+  .int-layout    { grid-template-columns: 1fr; gap: 12px; }
+  .int-arrow     { display: none; }
+  .footer-top    { grid-template-columns: 1fr; gap: 24px; }
+
+  /* ── FORCE ALL inline style grids to single column ── */
+  .section div[style*="gridTemplateColumns"],
+  div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
   /* ── OS Canvas ── */
-  .os-canvas        { padding: 18px 14px 14px; }
-  .os-spokes        { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+  .os-canvas { padding: 16px 12px 14px; }
+  .os-spokes {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    justify-content: flex-start;
+    gap: 0;
+  }
   .os-spokes::-webkit-scrollbar { display: none; }
-  .os-connector-col { flex-shrink: 0; min-width: 64px; scroll-snap-align: start; }
-  .os-node          { min-width: 58px; padding: 8px 5px; border-radius: 8px; }
+  .os-connector-col { flex-shrink: 0; min-width: 62px; scroll-snap-align: start; }
+  .os-node          { min-width: 56px; padding: 8px 4px; border-radius: 8px; }
   .os-node-label    { font-size: 8px; }
   .os-center-hub    { padding: 9px 14px; }
-  .os-hub-label     { font-size: 8px; }
+  .os-hub-label     { font-size: 8px; letter-spacing: 0.08em; }
   .os-hub-name      { font-size: 12px; }
-  .os-data-flow     { gap: 4px; flex-wrap: wrap; }
-  .os-flow-chip     { font-size: 9px; padding: 3px 7px; }
+  .os-data-flow     { gap: 4px; flex-wrap: wrap; margin-top: 12px; }
+  .os-flow-chip     { font-size: 9px; padding: 3px 8px; }
 
   /* ── Capability strip ── */
-  .cap-strip .cap-row { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding: 4px 18px; -webkit-overflow-scrolling: touch; }
+  .cap-strip .cap-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 4px 16px;
+    -webkit-overflow-scrolling: touch;
+  }
   .cap-strip .cap-row::-webkit-scrollbar { display: none; }
 
-  /* ── All CSS grids → 1 col ── */
-  .feat-grid-2, .feat-grid-3, .feat-grid-4 { grid-template-columns: 1fr; }
-  .ind-grid, .res-grid { grid-template-columns: 1fr; }
+  /* ── Industry cards — keep 2 col on mobile ── */
+  .ind-card { padding: 16px 14px; border-radius: 14px; }
+  .ind-card h3 { font-size: 14px; }
+  .ind-card p  { font-size: 12px; display: none; } /* hide description on mobile */
 
-  /* ── ALL inline grids → single column ── */
-  .section [style*="gridTemplateColumns"] {
-    grid-template-columns: 1fr !important;
-    gap: 28px !important;
-  }
-  /* Keep stage row number + text side by side */
-  .section [style*="gridTemplateColumns:\"100px 1fr\""],
-  .section [style*='gridTemplateColumns:"100px 1fr"'] {
-    grid-template-columns: 52px 1fr !important;
-    gap: 16px !important;
-  }
-  /* Metrics: keep 2-col on mobile */
-  .feat-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  /* ── Orchestration ── */
+  .orch-wrap       { padding: 16px 14px; border-radius: 16px; }
+  .orch-card       { padding: 10px 12px; flex-wrap: wrap; gap: 6px; }
+  .orch-agent-name { font-size: 12px; }
+  .orch-sub        { font-size: 11px; display: none; } /* hide long description on mobile */
+  .orch-status     { font-size: 9px; }
+  .orch-controls   { flex-wrap: wrap; gap: 8px; }
+  .orch-play, .orch-reset { min-height: 44px; }
 
   /* ── Comparison table ── */
-  [style*="gridTemplateColumns: '1fr 1.1fr 1.1fr'"],
-  [style*='gridTemplateColumns: "1fr 1.1fr 1.1fr"'] {
+  .section [style*="grid"][style*="1fr 1.1fr 1.1fr"],
+  div[style*="1fr 1.1fr 1.1fr"] {
     grid-template-columns: 1fr !important;
     display: flex !important;
     flex-direction: column !important;
   }
 
-  /* ── Orchestration ── */
-  .orch-wrap     { padding: 18px 14px; border-radius: var(--r-xl); }
-  .orch-card     { padding: 10px 12px; }
-  .orch-agent-name { font-size: 11.5px; }
-  .orch-sub      { font-size: 11px; }
-  .orch-controls { flex-wrap: wrap; gap: 8px; }
-
-  /* ── Audit ── */
-  .audit-opp    { grid-template-columns: 36px 1fr; }
-  .audit-mets   { gap: 10px; flex-wrap: wrap; }
-  .audit-counts { gap: 10px; }
-  .audit-dash-bar { flex-wrap: wrap; gap: 10px; padding: 14px 16px; }
+  /* ── Audit dashboard ── */
+  .audit-opp      { grid-template-columns: 36px 1fr; gap: 12px; }
+  .audit-mets     { gap: 8px; flex-wrap: wrap; }
+  .audit-dash-bar { flex-wrap: wrap; gap: 8px; padding: 12px 14px; }
 
   /* ── Leak scanner ── */
-  .leak-body  { padding: 18px 14px; }
-  .leak-tabs  { overflow-x: auto; }
-  .leak-tab   { font-size: 12px; padding: 10px 12px; min-width: 80px; }
-  .leak-items { grid-template-columns: 1fr; }
+  .leak-shell { border-radius: 16px; }
+  .leak-body  { padding: 16px 12px; }
+  .leak-tabs  { overflow-x: auto; gap: 0; }
+  .leak-tab   { font-size: 12px; padding: 10px 12px; min-width: 76px; flex-shrink: 0; }
+  .leak-items { grid-template-columns: 1fr; gap: 10px; }
+  .leak-item  { padding: 14px; }
+  .leak-metric { font-size: 28px; }
 
-  /* ── ROI ── */
-  .roi-inputs, .roi-results { padding: 22px 18px; }
+  /* ── ROI Calculator ── */
+  .roi-shell  { border-radius: 16px; }
+  .roi-grid   { grid-template-columns: 1fr; }
+  .roi-inputs { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 16px; }
+  .roi-results { padding: 20px 16px; }
   .roi-result-value { font-size: 28px; }
 
   /* ── Agent graph ── */
-  .ag-graph  { padding: 18px 14px; min-height: auto; }
-  .ag-nodes  { gap: 7px; }
-  .ag-node   { min-width: 88px; padding: 10px 7px; }
-  .ag-panel  { position: static; margin-top: 14px; }
+  .ag-graph  { padding: 16px 12px; min-height: auto; }
+  .ag-nodes  { gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .ag-node   { min-width: 90px; padding: 10px 6px; }
+  .ag-panel  { position: static; margin-top: 12px; }
 
   /* ── Use cases ── */
-  .uc-head { padding: 16px 18px; }
-  .uc-body { padding: 16px 18px; }
-  .uc-mets { flex-direction: column; }
+  .uc-head { padding: 14px 16px; }
+  .uc-body { padding: 14px 16px; }
+  .uc-mets { flex-direction: column; gap: 8px; }
 
-  /* ── Resources ── */
-  .res-card-top, .res-card-body, .res-card-foot { padding: 14px 16px; }
+  /* ── Resource cards ── */
+  .res-card-top, .res-card-body, .res-card-foot { padding: 14px 14px; }
 
-  /* ── Footer ── */
-  .footer     { padding: 48px 0 24px; }
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .footer-legal  { flex-wrap: wrap; gap: 10px; }
+  /* ── Cards ── */
+  .feat-card { padding: 18px 16px; }
+  .feat-icon { width: 36px; height: 36px; }
+  .card      { padding: 18px 16px; }
 
-  /* ── CTA ── */
-  .cta-band { padding: 44px 20px; border-radius: var(--r-xl); }
-  .cta-band .section-title { font-size: clamp(20px, 6vw, 30px); }
+  /* ── Pills & labels ── */
+  .pill { font-size: 11px; padding: 5px 12px; }
+
+  /* ── CTA band ── */
+  .cta-band { padding: 40px 20px; border-radius: 18px; }
+  .cta-band .section-title { font-size: clamp(18px, 5.5vw, 28px); }
+  .cta-band .btn-row { flex-direction: column; align-items: stretch; }
+  .cta-band .btn { justify-content: center; }
 
   /* ── Contact ── */
-  .contact-form-wrap { padding: 22px 16px; }
+  .contact-form-wrap { padding: 20px 16px; }
+  .contact-shell     { grid-template-columns: 1fr; }
 
-  /* ── Problem cards ── */
-  .prob-grid { grid-template-columns: 1fr; }
+  /* ── Footer ── */
+  .footer     { padding: 44px 0 24px; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-col h5 { margin-bottom: 10px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .footer-legal  { flex-wrap: wrap; gap: 12px; }
+  .footer-logo   { height: 26px; }
+
+  /* ── Floating buttons ── */
+  div[style*="bottom: 24"][style*="right: 24"] { bottom: 16px !important; right: 16px !important; }
+
+  /* ── Step flow ── */
+  .step-flow { gap: 0; }
+  .step-row  { gap: 12px; }
+  .step-dot  { width: 32px; height: 32px; font-size: 10px; }
+  .step-body h4 { font-size: 15px; }
+  .step-body p  { font-size: 13px; }
+
+  /* ── Section heading alignment ── */
+  .sh:not(.center) { text-align: left; }
 }
 
 /* ────────────────────────────────────────────────────────────────────────────
    ⑤ MOBILE PORTRAIT  ≤ 480px
    ──────────────────────────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
+  /* ═══════════════════════════════════════
+     SMALL MOBILE — Phone portrait
+  ═══════════════════════════════════════ */
   :root { --nav-h: 60px; }
-  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 28px); }
+
+  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 24px); }
+  .section    { padding: 44px 0; }
+  .section-sm { padding: 30px 0; }
+  .sh         { margin-bottom: 22px; }
 
   /* ── Typography ── */
-  .hero-title    { font-size: clamp(30px, 11vw, 42px); line-height: 1.07; }
-  .hero-sub      { font-size: 14.5px; }
-  .section-title { font-size: clamp(20px, 7vw, 30px); }
-  .body-lg       { font-size: 15px; }
-  .metric-num    { font-size: clamp(24px, 9vw, 34px); }
-  .metric-label  { font-size: 11.5px; }
+  .hero-title    { font-size: clamp(26px, 9vw, 36px); line-height: 1.1; }
+  .hero-sub      { font-size: 14px; }
+  .section-title { font-size: clamp(19px, 6.5vw, 28px); }
+  .body-lg       { font-size: 14px; }
+  .metric-num    { font-size: clamp(22px, 9vw, 32px); }
 
-  /* ── Spacing ── */
-  .section    { padding: 44px 0; }
-  .section-sm { padding: 32px 0; }
-  .sh         { margin-bottom: 24px; }
-
-  /* ── Nav logo ── */
+  /* ── Nav ── */
   .nav-logo { height: 34px; }
+  .nav-inner { width: calc(100% - 20px); }
 
   /* ── Hero ── */
-  .hero-inner { padding: 36px 0 24px; gap: 18px; }
-  .pill       { font-size: 10.5px; padding: 5px 10px; }
+  .hero-inner { padding: 40px 0 28px; gap: 18px; }
+  .pill       { font-size: 10px; padding: 4px 10px; }
+
+  /* ── Buttons ── */
+  .btn-lg { padding: 13px 20px; font-size: 14px; }
+  .btn    { min-height: 48px; }
+
+  /* ── Industry grid — single col on small phone ── */
+  .ind-grid { grid-template-columns: 1fr; gap: 8px; }
+
+  /* ── Metrics — 2 col on small phone ── */
+  .feat-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .feat-card[style*="textAlign"] { padding: 20px 12px; }
 
   /* ── OS canvas ── */
-  .os-canvas        { padding: 14px 10px 12px; }
-  .os-center-hub    { padding: 8px 10px; }
-  .os-hub-label     { font-size: 7.5px; }
-  .os-hub-name      { font-size: 11px; }
-  .os-connector-col { min-width: 54px; }
-  .os-node          { min-width: 50px; padding: 7px 4px; border-radius: 7px; }
-  .os-node-label    { font-size: 7px; }
-  .os-data-flow     { display: none; } /* hide chips on tiny screen */
+  .os-canvas     { padding: 12px 8px 10px; }
+  .os-center-hub { padding: 8px 10px; }
+  .os-hub-name   { font-size: 11px; }
+  .os-connector-col { min-width: 52px; }
+  .os-node       { min-width: 48px; padding: 7px 3px; }
+  .os-data-flow  { display: none; } /* hide chips on tiny screen */
 
-  /* â”€â”€ Buttons â”€â”€ */
-  .btn-lg { padding: 12px 18px; font-size: 14px; }
-  .btn    { min-height: 44px; }
+  /* ── Cards ── */
+  .feat-card { padding: 16px 14px; }
+  .feat-icon { width: 32px; height: 32px; font-size: 14px; }
+  .card      { padding: 16px 14px; }
 
-  /* â”€â”€ Cards â”€â”€ */
-  .feat-card  { padding: 18px 16px; }
-  .feat-icon  { width: 34px; height: 34px; font-size: 15px; }
-  .card       { padding: 18px; }
+  /* ── CTA ── */
+  .cta-band { padding: 36px 16px; }
 
-  /* â”€â”€ Metrics grid stays 2-col â”€â”€ */
-  .feat-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  /* ── Orchestration ── */
+  .orch-wrap { padding: 14px 10px; }
 
-  /* â”€â”€ Orchestration â”€â”€ */
-  .orch-wrap { padding: 16px 12px; }
+  /* ── Step dot ── */
+  .step-dot { width: 28px; height: 28px; font-size: 9px; }
 
-  /* â”€â”€ Agent graph â”€â”€ */
-  .ag-node   { min-width: 78px; }
-  .ag-node-name { font-size: 10px; }
-
-  /* â”€â”€ Step row â”€â”€ */
-  .section [style*="gridTemplateColumns:\"100px 1fr\""],
-  .section [style*='gridTemplateColumns:"100px 1fr"'] {
-    grid-template-columns: 44px 1fr !important;
-    gap: 12px !important;
-  }
-
-  /* â”€â”€ Footer â”€â”€ */
+  /* ── Footer ── */
   .footer-top { gap: 20px; }
   .footer     { padding: 36px 0 20px; }
 
-  /* â”€â”€ Leak scanner â”€â”€ */
+  /* ── Leak scanner ── */
   .leak-metric { font-size: 26px; }
 
-  /* â”€â”€ ROI â”€â”€ */
-  .roi-result-value { font-size: 26px; }
+  /* ── ROI ── */
+  .roi-result-value { font-size: 24px; }
 }
 
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -1462,6 +1604,11 @@ ul { list-style: none; }
   .wrap { width: 100%; }
   a[href]:after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
 }
+
+
+
+
+
 
 
 

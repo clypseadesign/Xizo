@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useReducer, useRef, useState } from "react";
+﻿import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import {
   ArrowRight, BarChart3, Bot, Brain, BrainCircuit,
   Building2, CheckCircle, ChevronDown, ChevronLeft,
@@ -209,9 +209,7 @@ function ComparisonSection() {
         }}>
           {/* Header row */}
           <div style={{
-            display: 'grid', gridTemplateColumns: '1fr 1.1fr 1.1fr',
-            background: 'var(--bg-soft)',
-            borderBottom: '1px solid var(--border)'
+            display: 'grid', gridTemplateColumns: '1fr 1.1fr 1.1fr', background: 'var(--bg-soft)', borderBottom: '1px solid var(--border)'
           }}>
             <div style={{padding:'14px 22px', fontSize:11, fontWeight:700, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--muted-2)'}}>
               Dimension
@@ -227,8 +225,7 @@ function ComparisonSection() {
           {/* Data rows */}
           {rows.map((r, i) => (
             <div key={i} style={{
-              display: 'grid', gridTemplateColumns: '1fr 1.1fr 1.1fr',
-              borderBottom: i < rows.length-1 ? '1px solid var(--border)' : 'none',
+              display: 'grid', gridTemplateColumns: '1fr 1.1fr 1.1fr', borderBottom: i < rows.length-1 ? '1px solid var(--border)' : 'none',
               transition: 'background 160ms'
             }}
             onMouseEnter={e => e.currentTarget.style.background='var(--bg-soft)'}
@@ -741,7 +738,7 @@ function HomePage({navigate}) {
       {/* BUSINESS PROBLEM SECTION */}
       <section className="section section-bg">
         <div className="wrap">
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:64,alignItems:"start"}}>
+          <div className="layout-2col">
             <div>
               <p className="label" style={{marginBottom:12}}>The Core Problem</p>
               <h2 className="section-title" style={{marginBottom:20}}>
@@ -781,7 +778,7 @@ function HomePage({navigate}) {
       {/* 5 STAGES */}
       <section className="section section-bg">
         <div className="wrap">
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:72,alignItems:"start"}}>
+          <div className="layout-2col">
             <div>
               <p className="label" style={{marginBottom:12}}>The Xizo Method</p>
               <h2 className="section-title" style={{marginBottom:20}}>
@@ -1006,7 +1003,7 @@ function AIOSPage({navigate}) {
               </div>
             ))}
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:20}}>
+          <div className="layout-3col">
             {EX.map(ex=>(
               <div key={ex.ind} style={{background:"var(--bg)",border:"1px solid var(--border)",borderRadius:"var(--radius-xl)",overflow:"hidden",boxShadow:"var(--shadow-sm)"}}>
                 <div style={{background:"var(--bg-soft)",borderBottom:"1px solid var(--border)",padding:"20px 24px"}}>
@@ -1126,7 +1123,7 @@ function OrchestrationPage({navigate}) {
       </section>
       <section className="section section-bg">
         <div className="wrap">
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:56}}>
+          <div className="layout-2col">
             <div>
               <p className="label" style={{marginBottom:12}}>How It Works</p>
               <h2 className="section-title" style={{marginBottom:20,fontSize:"clamp(26px,3.5vw,38px)"}}>The Xizo Orchestration Layer</h2>
@@ -1273,7 +1270,7 @@ function IndustryDetailPage({id,navigate}) {
       </section>
       <section className="section">
         <div className="wrap">
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:48}}>
+          <div className="layout-2col">
             <div>
               <p className="label" style={{marginBottom:14}}>Key Business Problems</p>
               {(ind.problems||[]).map((p,i)=><div key={i} style={{display:"flex",gap:10,marginBottom:12}}><AlertTriangle size={13} style={{color:c,flexShrink:0,marginTop:2}}/><span style={{fontSize:13,color:"var(--ink-3)"}}>{p}</span></div>)}
@@ -1286,7 +1283,7 @@ function IndustryDetailPage({id,navigate}) {
           {ind.metrics?.length>0&&(
             <div style={{marginTop:64}}>
               <div className="sh center"><p className="label">Expected Business Impact</p><h2 className="section-title">Measurable Outcomes.</h2></div>
-              <div style={{display:"grid",gridTemplateColumns:`repeat(${Math.min(ind.metrics.length,3)},1fr)`,gap:20}}>
+              <div className="layout-3col">
                 {ind.metrics.map((m,i)=>(
                   <div key={i} style={{background:"var(--bg)",border:"1px solid var(--border)",borderRadius:"var(--radius-lg)",padding:24,textAlign:"center",boxShadow:"var(--shadow-sm)"}}>
                     <p className="label" style={{marginBottom:16}}>{m.label}</p>
@@ -1328,7 +1325,7 @@ function HowPage({navigate}) {
       <section className="section">
         <div className="wrap">
           {stages.map((s,i)=>(
-            <div key={s.num} style={{display:"grid",gridTemplateColumns:"100px 1fr",gap:32,paddingBottom:48,borderBottom:i<stages.length-1?"1px solid var(--border)":"none",marginBottom:i<stages.length-1?48:0}}>
+            <div key={s.num} className="layout-stage-row" style={{paddingBottom:48,borderBottom:i<stages.length-1?"1px solid var(--border)":"none",marginBottom:i<stages.length-1?48:0}}>
               <div>
                 <div style={{fontSize:42,fontWeight:900,letterSpacing:"-0.04em",color:"var(--muted-3)",lineHeight:1}}>{s.num}</div>
                 <div className="label label-blue" style={{marginTop:6}}>{s.title}</div>
@@ -1477,7 +1474,7 @@ function IntegrationsPage({navigate}) {
               </div>
             </div>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:12}}>
+          <div className="layout-2col-tight">
             {SYS.map(s=>{const I=s.icon;return(<div key={s.n} style={{background:"var(--bg)",border:"1px solid var(--border)",borderRadius:"var(--radius)",padding:"16px 18px",display:"flex",alignItems:"flex-start",gap:12}}><div style={{width:34,height:34,borderRadius:"var(--radius-sm)",background:"var(--blue-soft)",display:"flex",alignItems:"center",justifyContent:"center",color:"var(--blue)",flexShrink:0}}><I size={15}/></div><div><div style={{fontSize:13,fontWeight:700,color:"var(--ink)",marginBottom:2}}>{s.n}</div><div style={{fontSize:11,color:"var(--muted)"}}>{s.e}</div></div></div>);})}</div>
         </div>
       </section>
@@ -1521,7 +1518,7 @@ function HumanAIPage({navigate}) {
               </div>
             ))}
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:56,marginTop:64,alignItems:"center"}}>
+          <div className="layout-2col layout-2col--mt">
             <div>
               <p className="label" style={{marginBottom:12}}>Approval Workflow Demo</p>
               <h2 className="section-title" style={{fontSize:"clamp(24px,3vw,36px)",marginBottom:16}}>Watch a Human Approval Gate in Action.</h2>
@@ -1570,7 +1567,7 @@ function AboutPage({navigate}) {
       </section>
       <section className="section">
         <div className="wrap">
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:64}}>
+          <div className="layout-2col">
             <div>
               <p className="label" style={{marginBottom:12}}>Mission</p>
               <h2 className="section-title" style={{fontSize:"clamp(24px,3vw,36px)",marginBottom:16}}>Make Every Business Capable of Operating as an AI-Native Organisation.</h2>
@@ -1787,3 +1784,6 @@ export default function App() {
     </>
   );
 }
+
+
+
