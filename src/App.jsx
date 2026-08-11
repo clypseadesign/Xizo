@@ -13,6 +13,9 @@ import {
 } from "lucide-react";
 import { animate, spring } from "motion";
 import xizoLogo from "./assets/xizo-logo-white.png";
+import auditDashboardImg from "./assets/audit_dashboard.jpg";
+import agentOrchestrationImg from "./assets/agent_orchestration.jpg";
+import aiOsArchitectureImg from "./assets/ai_os_architecture.jpg";
 import {
   industries,
   businessProblems,
@@ -142,7 +145,7 @@ function FloatingActions() {
     }}>
       {/* WhatsApp */}
       <a
-        href="https://wa.me/916382347050?text=Hi%20Xizo!%20I'd%20like%20to%20request%20an%20AI%20Business%20Audit."
+        href="https://wa.me/916382354705?text=Hi%20Xizo!%20I'd%20like%20to%20request%20an%20AI%20Business%20Audit."
         target="_blank" rel="noopener noreferrer"
         title="Chat on WhatsApp"
         style={{
@@ -376,41 +379,9 @@ const OS_NODES=[
 ];
 
 function OSVisualization() {
-  const flows=["Lead Response","CRM Update","Invoice Processing","Report Generation","Follow-up Sequence","Approval Routing","Data Sync"];
   return (
-    <div className="hero-glass-card">
-      <div className="hero-glass-glow"/>
-      <div className="os-canvas">
-        <div className="os-top-bar">
-          <div className="os-dot" style={{background:"#fc5c65"}}/>
-          <div className="os-dot" style={{background:"#ffd32a"}}/>
-          <div className="os-dot" style={{background:"#05c46b"}}/>
-          <span style={{fontSize:11,color:"var(--muted-2)",marginLeft:6,fontWeight:600}}>Xizo AI OS — Live Dashboard</span>
-        </div>
-        <div className="os-center-hub">
-          <span className="os-hub-label">XIZO OS</span>
-          <span className="os-hub-name">AI Orchestrator</span>
-        </div>
-        <div className="os-spokes">
-          {OS_NODES.map(({Icon,label},i)=>(
-            <div key={i} className="os-connector-col">
-              <div className="os-v-line"/>
-              <div className="os-node">
-                <Icon size={16} style={{color:"var(--blue)",flexShrink:0}}/>
-                <span className="os-node-label">{label}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="os-data-flow">
-          {flows.map((f,i)=>(
-            <div key={i} className="os-flow-chip" style={{animationDelay:`${i*0.3}s`}}>
-              <span className="dot"/>
-              {f}
-            </div>
-          ))}
-        </div>
-      </div>
+    <div className="hero-glass-card" style={{padding: 0, overflow: "hidden"}}>
+      <img src={aiOsArchitectureImg} alt="AI OS Architecture" style={{width: "100%", height: "auto", display: "block"}} />
     </div>
   );
 }
@@ -596,48 +567,9 @@ function ROICalculator() {
 
 // ── Audit Dashboard ───────────────────────────────────────────────────────────
 function AuditDashboard() {
-  const opps=[
-    {num:"01",title:"Lead Response Gap",impact:"HIGH",desc:"Inbound enquiries are assigned manually after an average 2h 47m delay. Intent signals deteriorate rapidly after 5 minutes.",
-      mets:[{l:"Current Response",v:"2h 47m",c:"bad"},{l:"AI Target",v:"< 2 min",c:"good"},{l:"Leads at Risk/Mo",v:"73",c:"bad"}],
-      agents:"Lead Intelligence + Qualification + Response Agents"},
-    {num:"02",title:"Follow-up Leakage",impact:"HIGH",desc:"23% of qualified opportunities receive only one follow-up before being abandoned. No structured re-engagement exists.",
-      mets:[{l:"Follow-up Gap",v:"23%",c:"bad"},{l:"Touchpoints/Lead",v:"1.4",c:"bad"},{l:"Industry Best",v:"7–12",c:"good"}],
-      agents:"Follow-up + CRM + Sales Orchestration Agents"},
-    {num:"03",title:"Manual Reporting Overhead",impact:"MEDIUM",desc:"14 hours per week spent by management manually collecting and formatting performance reports.",
-      mets:[{l:"Hours/Week",v:"14h",c:"bad"},{l:"Reports Delayed",v:"62%",c:"bad"},{l:"With AI",v:"Real-time",c:"good"}],
-      agents:"Analytics + Reporting + Data Intelligence Agents"},
-  ];
-  const ic={HIGH:"#dc2626",MEDIUM:""};
   return (
-    <div className="audit-dash">
-      <div className="audit-dash-bar">
-        <span className="audit-dash-title">Xizo AI Audit — Sample Output</span>
-        <div className="audit-counts">
-          {[["17","Total Gaps"],["5","High"],["8","Medium"],["4","Low"]].map(([n,l])=>(
-            <div key={l} className="audit-count"><div className="audit-count-num">{n}</div><div className="audit-count-lbl">{l}</div></div>
-          ))}
-        </div>
-      </div>
-      <div className="audit-opps">
-        {opps.map(o=>(
-          <div key={o.num} className="audit-opp">
-            <div className="audit-opp-num">{o.num}</div>
-            <div>
-              <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:6}}>
-                <h4 style={{margin:0}}>{o.title}</h4>
-                <span className={`tag ${o.impact==="HIGH"?"tag-red":"tag-amber"}`}>{o.impact}</span>
-              </div>
-              <p>{o.desc}</p>
-              <div className="audit-mets">
-                {o.mets.map(m=><div key={m.l} className={`audit-met ${m.c}`}><label>{m.l}</label><span>{m.v}</span></div>)}
-              </div>
-              <p style={{fontSize:12,color:"var(--muted-2)",marginTop:8}}>
-                <span style={{color:"var(--blue)",fontWeight:700}}>AI Architecture: </span>{o.agents}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="audit-dash" style={{padding: 0, overflow: "hidden", border: "1px solid var(--border)", borderRadius: "var(--r-2xl)", boxShadow: "var(--sh)"}}>
+      <img src={auditDashboardImg} alt="AI Business Audit Dashboard" style={{width: "100%", height: "auto", display: "block"}} />
     </div>
   );
 }
@@ -1702,8 +1634,8 @@ function ContactPage() {
               <div className="contact-deets" style={{marginTop:32}}>
                 {[
                   {icon:Mail,t:"Email",v:<a href="mailto:xizo.ai.group@gmail.com">xizo.ai.group@gmail.com</a>},
-                  {icon:Phone,t:"Phone",v:<a href="tel:+916382347050">+91 638 234 7050</a>},
-                  {icon:MessageSquare,t:"WhatsApp",v:<a href="https://wa.me/916382347050" target="_blank" rel="noopener noreferrer">+91 638 234 7050</a>},
+                  {icon:Phone,t:"Phone",v:<a href="tel:+916382354705">+91 6382354705</a>},
+                  {icon:MessageSquare,t:"WhatsApp",v:<a href="https://wa.me/916382354705" target="_blank" rel="noopener noreferrer">+91 6382354705</a>},
                 ].map(({icon:I,t,v})=>(
                   <div key={t} className="contact-det">
                     <div className="contact-det-icon"><I size={15}/></div>
@@ -1714,7 +1646,7 @@ function ContactPage() {
             </div>
             <div className="contact-form-wrap">
               <h3 style={{fontSize:19,fontWeight:700,marginBottom:24}}>Request an AI Business Audit</h3>
-              <form onSubmit={e=>{e.preventDefault();setDone(true);}}>
+              <form onSubmit={e=>{e.preventDefault();const sub=encodeURIComponent(`AI Audit Request: ${form.company}`);const bod=encodeURIComponent(`Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nWebsite: ${form.website}\nIndustry: ${form.industry}\nSize: ${form.size}\n\nChallenge:\n${form.challenge}\n\nStack:\n${form.stack}\n\nNotes:\n${form.notes}`);window.location.href=`mailto:xizo.ai.group@gmail.com?subject=${sub}&body=${bod}`;setDone(true);}}>
                 <div className="form-row">
                   <div className="form-field"><label>Full Name *</label><input type="text" value={form.name} onChange={u("name")} placeholder="Your name" required/></div>
                   <div className="form-field"><label>Company *</label><input type="text" value={form.company} onChange={u("company")} placeholder="Your company" required/></div>
@@ -1784,6 +1716,10 @@ export default function App() {
     </>
   );
 }
+
+
+
+
 
 
 
