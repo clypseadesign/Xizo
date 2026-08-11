@@ -1,4 +1,4 @@
-/* â”€â”€ Google Fonts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+﻿/* â”€â”€ Google Fonts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=Instrument+Serif:ital@0;1&display=swap');
 
 /* â”€â”€ Design Tokens â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -50,7 +50,7 @@
 
   /* Layout */
   --maxw:    1200px;
-  --nav-h:   68px;
+  --nav-h:   72px;
 
   /* Radii */
   --r-xs:   6px;
@@ -101,7 +101,7 @@ input, textarea, select { font-family: var(--font); font-optical-sizing: auto; }
 ul { list-style: none; }
 
 /* â”€â”€ Utility â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.wrap    { width: min(var(--maxw), calc(100% - 48px)); margin: 0 auto; }
+.wrap    { width: min(var(--maxw), calc(100% - 40px)); margin: 0 auto; }
 .wrap-sm { width: min(800px, calc(100% - 48px)); margin: 0 auto; }
 .wrap-lg { width: min(1400px, calc(100% - 48px)); margin: 0 auto; }
 .section    { padding: 96px 0; }
@@ -336,7 +336,7 @@ ul { list-style: none; }
   box-shadow: 0 2px 24px rgba(0,0,0,0.24);
 }
 .nav-inner {
-  width: min(var(--maxw), calc(100% - 48px));
+  width: min(var(--maxw), calc(100% - 40px));
   margin: 0 auto;
   height: 100%;
   display: flex;
@@ -344,9 +344,9 @@ ul { list-style: none; }
   gap: 20px;
 }
 .nav-logo {
-  height: 38px; width: auto;
+  height: 48px; width: auto;
   cursor: pointer;
-  filter: none; /* white logo on dark nav — no brightness inversion */
+  filter: none;
   transition: opacity var(--t-fast);
   user-select: none;
   -webkit-user-select: none;
@@ -372,39 +372,60 @@ ul { list-style: none; }
 .nav-link.active { color: #fff; font-weight: 600; }
 
 .nav-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.nav-ham { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; border-radius: var(--r-sm); transition: background var(--t-instant); }
-/* Mob menu â€” Apple: slides in from the same direction it came, spring easing */
+.nav-ham {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: var(--r-sm);
+  transition: background var(--t-instant);
+  min-width: 44px; min-height: 44px;
+}
+.nav-ham:active { background: rgba(255,255,255,0.08); }
+.nav-ham span {
+  display: block;
+  width: 24px; height: 2px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 2px;
+  transition: transform 0.24s var(--ease-out), opacity 0.2s;
+}
+
+/* Dark glass mobile menu */
 .mob-menu {
   display: none;
   position: fixed;
   top: var(--nav-h); left: 0; right: 0; bottom: 0;
-  background: var(--mat-sheet);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(6,6,18,0.97);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   z-index: 99;
-  padding: 24px;
+  padding: 32px 28px;
   flex-direction: column;
-  gap: 2px;
+  gap: 0;
   overflow-y: auto;
-  border-top: 1px solid var(--border-3);
-  /* Apple: enter from the same direction â€” slides down */
+  border-top: 1px solid rgba(255,255,255,0.06);
   animation: slideDown var(--t-base) var(--ease-out) both;
 }
 .mob-menu.open { display: flex; }
 .mob-link {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--ink-3);
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border-3);
+  color: rgba(255,255,255,0.70);
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
   cursor: pointer;
   transition: color var(--t-instant), padding-left var(--t-fast) var(--ease-spring);
   -webkit-tap-highlight-color: transparent;
   border-radius: 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
-.mob-link:hover { color: var(--blue); padding-left: 6px; }
-.mob-link:active { color: var(--blue); opacity: 0.7; }
+.mob-link:hover { color: #fff; padding-left: 10px; }
+.mob-link:active { color: var(--blue); opacity: 0.85; }
 
 @media (max-width: 1000px) { .nav-links { display: none; } .nav-ham { display: flex; } }
 
@@ -431,7 +452,7 @@ ul { list-style: none; }
   pointer-events: none;
 }
 .hero-inner {
-  width: min(var(--maxw), calc(100% - 48px));
+  width: min(var(--maxw), calc(100% - 40px));
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1142,7 +1163,7 @@ ul { list-style: none; }
 
   /* â”€â”€ Components â”€â”€ */
   .roi-inputs  { border-right: none; border-bottom: 1px solid var(--border); }
-  .footer-top  { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-top  { grid-template-columns: 1fr; gap: 24px; }
   .cta-band    { padding: 56px 32px; }
   .ag-panel    { position: static; }
 }
@@ -1152,7 +1173,7 @@ ul { list-style: none; }
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 768px) {
   /* â”€â”€ Typography â”€â”€ */
-  .hero-title    { font-size: clamp(34px, 10vw, 52px); letter-spacing: -0.022em; line-height: 1.06; }
+  .hero-title { font-size: clamp(30px, 9vw, 46px); letter-spacing: -0.02em; line-height: 1.08; }
   .section-title { font-size: clamp(22px, 6.5vw, 36px); letter-spacing: -0.016em; }
   .body-lg       { font-size: 16px; }
   .body-md       { font-size: 14px; }
@@ -1160,21 +1181,21 @@ ul { list-style: none; }
 
   /* â”€â”€ Spacing â”€â”€ */
   /* ── Spacing ── */
-  .section    { padding: 60px 0; }
+  .section { padding: 56px 0; }
   .section-sm { padding: 40px 0; }
   .sh         { margin-bottom: 32px; }
-  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 36px); }
+  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 32px); }
 
   /* ── Nav ── */
   .nav-links  { display: none; }
   .nav-ham    { display: flex; }
-  .nav-logo   { height: 32px; } /* slightly smaller on tablet/mobile but still visible */
+  .nav-logo { height: 40px; }
   .nav-cta    { display: none; } /* hide full CTA button; hamburger takes over */
 
   /* ── Hero ── */
   .hero       { min-height: auto; padding-bottom: 0; }
-  .hero-inner { padding: 48px 0 32px; gap: 24px; flex-direction: column; }
-  .hero-copy  { text-align: center; }
+  .hero-inner { padding: 56px 0 40px; gap: 28px; flex-direction: column; align-items: center; }
+  .hero-copy  { text-align: center; max-width: 100%; width: 100%; }
   .hero-sub   { font-size: 15px; max-width: 100%; margin-left: auto; margin-right: auto; }
   .hero-visual-wrap { max-width: 100%; }
   .hero-glass-card  { border-radius: 16px; }
@@ -1282,7 +1303,7 @@ ul { list-style: none; }
    ⑤ MOBILE PORTRAIT  ≤ 480px
    ──────────────────────────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  :root { --nav-h: 54px; }
+  :root { --nav-h: 60px; }
   .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 28px); }
 
   /* ── Typography ── */
@@ -1299,10 +1320,10 @@ ul { list-style: none; }
   .sh         { margin-bottom: 24px; }
 
   /* ── Nav logo ── */
-  .nav-logo { height: 28px; }
+  .nav-logo { height: 34px; }
 
   /* ── Hero ── */
-  .hero-inner { padding: 40px 0 28px; gap: 20px; }
+  .hero-inner { padding: 36px 0 24px; gap: 18px; }
   .pill       { font-size: 10.5px; padding: 5px 10px; }
 
   /* ── OS canvas ── */
@@ -1441,4 +1462,7 @@ ul { list-style: none; }
   .wrap { width: 100%; }
   a[href]:after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
 }
+
+
+
 
