@@ -1054,29 +1054,224 @@ ul { list-style: none; }
   .btn-outline { border-width: 2px; }
 }
 
-/* ── Responsive ──────────────────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — Mobile-first, every breakpoint covered
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 960px) ──────────────────────────────────────────────── */
 @media (max-width: 960px) {
-  .feat-grid-4 { grid-template-columns: repeat(2,1fr); }
-  .ind-grid { grid-template-columns: repeat(2,1fr); }
-  .hai-grid { grid-template-columns: 1fr; }
-  .uc-grid  { grid-template-columns: 1fr; }
-  .res-grid { grid-template-columns: repeat(2,1fr); }
-  .roi-grid { grid-template-columns: 1fr; }
+  /* Wrap */
+  .wrap, .wrap-sm, .wrap-lg { width: calc(100% - 40px); }
+
+  /* Grids → 2 col */
+  .feat-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .feat-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .ind-grid    { grid-template-columns: repeat(2, 1fr); }
+  .res-grid    { grid-template-columns: repeat(2, 1fr); }
+
+  /* Single-col layouts */
+  .hai-grid      { grid-template-columns: 1fr; }
+  .uc-grid       { grid-template-columns: 1fr; }
+  .roi-grid      { grid-template-columns: 1fr; }
+  .ag-layout     { grid-template-columns: 1fr; }
+  .contact-shell { grid-template-columns: 1fr; gap: 36px; }
+  .form-row      { grid-template-columns: 1fr; }
+  .leak-items    { grid-template-columns: 1fr; }
+
+  /* ROI */
   .roi-inputs { border-right: none; border-bottom: 1px solid var(--border); }
-  .ag-layout { grid-template-columns: 1fr; }
-  .int-layout { grid-template-columns: 1fr; }
+
+  /* Integration layout → stack */
+  .int-layout { grid-template-columns: 1fr; gap: 12px; }
+  .int-arrow  { display: none; }
+
+  /* Footer */
   .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .contact-shell { grid-template-columns: 1fr; gap: 40px; }
-  .form-row { grid-template-columns: 1fr; }
-  .leak-items { grid-template-columns: 1fr; }
-  .cta-band { padding: 48px 28px; }
+
+  /* CTA */
+  .cta-band { padding: 56px 32px; }
+
+  /* Comparison table — hide dimension column on small tablet */
+  .cmp-dim { display: none; }
 }
-@media (max-width: 640px) {
-  .ind-grid, .res-grid, .feat-grid-3, .feat-grid-2 { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; }
-  .hero-inner { padding: 56px 0 40px; }
-  .section { padding: 64px 0; }
-  .cta-band { padding: 40px 20px; }
-  .os-canvas { padding: 24px 20px 18px; }
-  .hero-glass-card { border-radius: 20px; }
+
+/* ── Mobile (≤ 768px) ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Typography scale down */
+  .hero-title   { font-size: clamp(36px, 10vw, 52px); letter-spacing: -0.025em; }
+  .section-title{ font-size: clamp(24px, 7vw, 36px);  letter-spacing: -0.018em; }
+  .body-lg      { font-size: 16px; }
+  .body-md      { font-size: 14px; }
+  .metric-num   { font-size: clamp(28px, 8vw, 40px); }
+
+  /* Sections */
+  .section    { padding: 64px 0; }
+  .section-sm { padding: 44px 0; }
+  .sh         { margin-bottom: 36px; }
+
+  /* Hero */
+  .hero-inner { padding: 52px 0 36px; gap: 28px; }
+  .hero-sub   { font-size: 16px; max-width: 100%; }
+  .btn-row    { flex-direction: column; align-items: stretch; }
+  .btn-row .btn { justify-content: center; }
+
+  /* OS Canvas — compress for mobile */
+  .hero-glass-card { border-radius: 18px; }
+  .os-canvas       { padding: 20px 16px 16px; }
+  .os-spokes       { gap: 0; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .os-spokes::-webkit-scrollbar { display: none; }
+  .os-connector-col { flex-shrink: 0; min-width: 66px; }
+  .os-node          { min-width: 60px; padding: 8px 6px; }
+  .os-node-label    { font-size: 8.5px; }
+  .os-center-hub    { padding: 10px 16px; }
+  .os-hub-name      { font-size: 13px; }
+  .os-data-flow     { gap: 4px; }
+  .os-flow-chip     { font-size: 9px; padding: 3px 8px; }
+
+  /* Capability strip — single row, scroll */
+  .cap-strip .cap-row { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding: 3px 20px; }
+  .cap-strip .cap-row::-webkit-scrollbar { display: none; }
+
+  /* Problem cards — full width */
+  .feat-grid-2, .feat-grid-3, .feat-grid-4 { grid-template-columns: 1fr; }
+  .ind-grid    { grid-template-columns: 1fr; }
+  .res-grid    { grid-template-columns: 1fr; }
+
+  /* Step flow — tighter spacing */
+  .step-body { padding-bottom: 18px; }
+
+  /* Orchestration — stack on mobile */
+  .orch-wrap    { padding: 20px 16px; border-radius: var(--r-xl); }
+  .orch-card    { padding: 10px 12px; }
+  .orch-agent-name { font-size: 12px; }
+  .orch-controls { flex-wrap: wrap; gap: 8px; }
+
+  /* Audit dashboard */
+  .audit-opp  { grid-template-columns: 36px 1fr; }
+  .audit-mets { gap: 10px; }
+  .audit-counts { gap: 12px; }
+
+  /* Leak scanner */
+  .leak-body  { padding: 20px 16px; }
+  .leak-tabs .leak-tab { font-size: 12px; padding: 10px 12px; min-width: 80px; }
+
+  /* ROI */
+  .roi-inputs, .roi-results { padding: 24px 20px; }
+  .roi-result-value { font-size: 30px; }
+
+  /* Comparison table — 2 cols (agents + xizo), no dimension label */
+  .cmp-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Agent graph */
+  .ag-graph   { padding: 20px 16px; min-height: auto; }
+  .ag-nodes   { gap: 7px; }
+  .ag-node    { min-width: 90px; padding: 10px 8px; }
+  .ag-panel   { position: static; margin-top: 16px; }
+
+  /* Use cases */
+  .uc-head { padding: 18px 18px; }
+  .uc-body { padding: 18px; }
+  .uc-mets { flex-direction: column; }
+
+  /* Resources */
+  .res-card-top, .res-card-body, .res-card-foot { padding: 14px 16px; }
+
+  /* Footer */
+  .footer-top   { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom{ flex-direction: column; align-items: flex-start; gap: 10px; }
+  .footer-legal { flex-wrap: wrap; gap: 12px; }
+
+  /* CTA band */
+  .cta-band { padding: 44px 20px; border-radius: var(--r-xl); }
+  .cta-band .section-title { font-size: clamp(22px, 6vw, 32px); }
+  .btn-row.center { flex-direction: column; align-items: center; }
+
+  /* Contact form */
+  .contact-form-wrap { padding: 24px 18px; }
+
+  /* Nav CTA — hide "Request AI Audit" label on small screen to save space */
+  .nav-cta span { display: none; }
+
+  /* Floating actions — nudge inward on mobile */
+  /* (buttons shrink to 44px for touch targets) */
+}
+
+/* ── Small Mobile (≤ 480px) ───────────────────────────────────────── */
+@media (max-width: 480px) {
+  :root { --nav-h: 54px; }
+  .wrap { width: calc(100% - 32px); }
+
+  .hero-title { font-size: clamp(32px, 11vw, 44px); line-height: 1.08; }
+  .hero-sub   { font-size: 15px; }
+
+  /* OS canvas — even more compact */
+  .os-canvas    { padding: 16px 12px 12px; }
+  .os-center-hub{ padding: 8px 12px; }
+  .os-hub-label { font-size: 8px; }
+  .os-hub-name  { font-size: 12px; }
+  .os-node      { min-width: 52px; padding: 7px 4px; border-radius: 8px; }
+  .os-node-label{ font-size: 7.5px; }
+
+  /* Problem grid — single col always */
+  .prob-grid { grid-template-columns: 1fr; }
+
+  /* Audit dash counts — smaller numbers */
+  .audit-count-num { font-size: 18px; }
+  .audit-dash-bar { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+
+  /* Sections tighter */
+  .section    { padding: 48px 0; }
+  .section-sm { padding: 36px 0; }
+  .sh         { margin-bottom: 28px; }
+
+  /* Pill badge — hide on very small */
+  .pill { font-size: 11px; padding: 5px 10px; }
+
+  /* Buttons — full width on small screens */
+  .btn-lg { padding: 12px 20px; font-size: 14px; }
+
+  /* Feature cards */
+  .feat-card { padding: 20px 18px; }
+  .feat-icon  { width: 36px; height: 36px; }
+
+  /* Floating actions — smaller */
+  /* Handled via inline style in JS, just override z-index here */
+
+  /* Footer */
+  .footer { padding: 44px 0 24px; }
+  .footer-top { gap: 22px; }
+
+  /* Metric cards */
+  .feat-card[style*="32px"] { padding: 24px 16px !important; }
+  .metric-num { font-size: clamp(26px, 9vw, 36px); }
+  .metric-label { font-size: 12px; }
+}
+
+/* ── Extra Small (≤ 380px) ────────────────────────────────────────── */
+@media (max-width: 380px) {
+  .hero-title { font-size: 30px; }
+  .wrap       { width: calc(100% - 24px); }
+  .os-spokes  { gap: 0; }
+  .os-node    { min-width: 46px; }
+  .os-node-label { display: none; } /* just show icons on tiny screens */
+  .nav-actions .btn-outline { display: none; } /* hide login btn on tiny screen */
+}
+
+/* ── Touch — tap target safety net ───────────────────────────────── */
+@media (pointer: coarse) {
+  /* Apple HIG: minimum 44×44px tap target */
+  .btn        { min-height: 44px; }
+  .nav-link   { padding: 10px 12px; }
+  .mob-link   { padding: 16px 0; }
+  .leak-tab   { min-height: 44px; }
+  .prob-filter{ min-height: 36px; }
+  .footer-link{ min-height: 36px; display: inline-flex; align-items: center; }
+
+  /* Remove hover effects on touch — they get stuck on first tap */
+  .ind-card:hover,
+  .feat-card:hover,
+  .res-card:hover,
+  .prob-card:hover { transform: none; box-shadow: var(--sh-sm); }
+  .os-node:hover   { transform: none; }
+  .ag-node:hover   { transform: none; }
 }

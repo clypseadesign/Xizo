@@ -360,15 +360,16 @@ function CTABand({navigate,title,sub}) {
   );
 }
 
-// ── OS Visualization ──────────────────────────────────────────────────────────
+// ── OS Visualization ─────────────────────────────────────────────────────────
+// OS nodes — Lucide icons only, no emoji
 const OS_NODES=[
-  {icon:"💼",label:"Sales"},
-  {icon:"📣",label:"Marketing"},
-  {icon:"💬",label:"Support"},
-  {icon:"💰",label:"Finance"},
-  {icon:"⚙️",label:"Operations"},
-  {icon:"👥",label:"HR"},
-  {icon:"📊",label:"Analytics"},
+  {Icon:Briefcase,  label:"Sales"},
+  {Icon:TrendingUp, label:"Marketing"},
+  {Icon:MessageSquare,label:"Support"},
+  {Icon:DollarSign, label:"Finance"},
+  {Icon:Cog,        label:"Operations"},
+  {Icon:Users,      label:"HR"},
+  {Icon:BarChart3,  label:"Analytics"},
 ];
 
 function OSVisualization() {
@@ -388,12 +389,12 @@ function OSVisualization() {
           <span className="os-hub-name">AI Orchestrator</span>
         </div>
         <div className="os-spokes">
-          {OS_NODES.map((n,i)=>(
+          {OS_NODES.map(({Icon,label},i)=>(
             <div key={i} className="os-connector-col">
               <div className="os-v-line"/>
               <div className="os-node">
-                <span className="os-node-icon">{n.icon}</span>
-                <span className="os-node-label">{n.label}</span>
+                <Icon size={16} style={{color:"var(--blue)",flexShrink:0}}/>
+                <span className="os-node-label">{label}</span>
               </div>
             </div>
           ))}
